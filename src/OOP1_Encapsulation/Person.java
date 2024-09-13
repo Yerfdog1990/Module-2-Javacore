@@ -1,4 +1,7 @@
 package OOP1_Encapsulation;
+
+import java.util.Scanner;
+
 /*
 Definition of Encapsulation:
 Encapsulation is a principle of Object-Oriented Programming (OOP) that involves bundling the data (variables) and the methods (functions) that operate on the data into a single unit, known as a class.
@@ -61,17 +64,23 @@ public class Person {
 
 class Main {
     public static void main(String[] args) {
-        // Creating a Person object and using encapsulated methods
-        Person person = new Person("John", 25);
+        try (Scanner userInput = new Scanner(System.in)){
+            System.out.print("Enter name: ");
+            String name = userInput.nextLine();
+            System.out.print("Enter age: ");
+            int age = userInput.nextInt();
+            // Creating a Person object and using encapsulated methods
+            Person person = new Person(name, age);
 
-        // Demonstrating the advantages of encapsulation
-        person.displayPersonInfo(); // Displays valid state and uses internal method
+            // Demonstrating the advantages of encapsulation
+            person.displayPersonInfo(); // Displays valid state and uses internal method
 
-        // Attempting to set an invalid value
-        person.setAge(200); // Demonstrates parameter checking
+            // Attempting to set an invalid value
+            person.setAge(200); // Demonstrates parameter checking
 
-        // Demonstrates controlled interaction through encapsulation
-        System.out.println("Person's Name (read-only): " + person.getName());
+            // Demonstrates controlled interaction through encapsulation
+            System.out.println("Person's Name (read-only): " + person.getName());
+        }
     }
 }
 
