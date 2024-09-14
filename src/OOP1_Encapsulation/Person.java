@@ -61,7 +61,6 @@ public class Person {
         System.out.println("Adult: " + (isAdult() ? "Yes" : "No")); // Calls private method
     }
 }
-
 class Main {
     public static void main(String[] args) {
         try (Scanner userInput = new Scanner(System.in)){
