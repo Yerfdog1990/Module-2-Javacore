@@ -51,17 +51,26 @@ class mainClass {
         Whale whale = new Whale();
         whale.printAll(); // I'm a cow, Then I swim because I'm a whale
 
-        // 2. Late Binding (Dynamic Dispatch)
-        Cow cowRef = new Whale();
-        cowRef.printName(); // I'm a whale (Whale's method is called)
+        // 2. Widening Type Casting (Upcasting)
+        Cow cowRef = new Whale(); // Whale object is upcast to Cow reference
+        cowRef.printName(); // I'm a whale (Whale's method is called, thanks to dynamic binding)
 
-        // 3. Type Casting
+        // 3. Narrowing Type Casting (Downcasting)
         if (cowRef instanceof Whale) {
-            Whale whaleRef = (Whale) cowRef;
+            Whale whaleRef = (Whale) cowRef; // Narrowing conversion (downcasting)
             whaleRef.printAll(); // I'm a cow, Then I swim because I'm a whale
         }
+
         // 4. Superclass Method Invocation
         whale.printAll(); // I'm a cow, Then I swim because I'm a whale
+
+        // 5. Widening and Narrowing with Object class
+        Object obj = new Whale(); // Widening conversion (Whale to Object)
+        if (obj instanceof Whale) {
+            Whale narrowedWhale = (Whale) obj; // Narrowing conversion (Object to Whale)
+            narrowedWhale.printName(); // I'm a whale
+        }
     }
 }
+
 
