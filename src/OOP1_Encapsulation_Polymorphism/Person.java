@@ -1,4 +1,4 @@
-package OOP1_Encapsulation;
+package OOP1_Encapsulation_Polymorphism;
 
 import java.util.Scanner;
 
