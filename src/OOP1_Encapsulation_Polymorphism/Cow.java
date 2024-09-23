@@ -1,4 +1,4 @@
-package OOP1_Encapsulation;
+package OOP1_Encapsulation_Polymorphism;
 /*
 Polymorphism in OOP
     -Polymorphism allows objects of different classes to be treated as objects of a common parent class.
