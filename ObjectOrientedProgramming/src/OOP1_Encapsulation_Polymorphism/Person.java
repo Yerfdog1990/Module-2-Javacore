@@ -23,16 +23,19 @@ public class Person {
         setName(name); // Encapsulated field through method
         setAge(age);   // Encapsulated field through method
     }
+
     // Public getter to allow read-only access (Controlled Interaction - Advantage 4)
     public String getName() {
 
         return name;
     }
+
     // Public getter to access age
     public int getAge() {
 
         return age;
     }
+
     // Public setter with validation (Advantage 2: Parameter Checking)
     public void setName(String name) {
         if (name != null && !name.isEmpty()) {
@@ -41,6 +44,7 @@ public class Person {
             System.out.println("Invalid name!");
         }
     }
+
     // Public setter with validation (Advantage 2: Parameter Checking)
     public void setAge(int age) {
         if (age > 0 && age <= 150) {
@@ -49,11 +53,13 @@ public class Person {
             System.out.println("Invalid age!");
         }
     }
+
     // Private method that can be changed without affecting other code (Advantage 3: Fewer Bugs When Changing Code)
     private boolean isAdult() {
 
         return age >= 18;
     }
+
     // Public method controlling how others interact with the object (Advantage 4: Controlled Interaction)
     public void displayPersonInfo() {
         System.out.println("Name: " + name);
@@ -61,7 +67,7 @@ public class Person {
         System.out.println("Adult: " + (isAdult() ? "Yes" : "No")); // Calls private method
     }
 }
-class Main {
+class MainClass {
     public static void main(String[] args) {
         try (Scanner userInput = new Scanner(System.in)){
             System.out.print("Enter name: ");
@@ -82,4 +88,5 @@ class Main {
         }
     }
 }
+
 
