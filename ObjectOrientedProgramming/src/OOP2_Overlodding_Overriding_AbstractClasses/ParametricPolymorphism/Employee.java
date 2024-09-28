@@ -1,4 +1,4 @@
-package MethodOverriding;
+package OOP2_Overlodding_Overriding_AbstractClasses.ParametricPolymorphism;
 /*
 In Java, when you create your own classes (like Order, Trade, or Employee), it's important to provide specific implementations for several methods:
     1. equals(): This method checks if two objects are "equal." By default, it checks if both references point to the same object in memory. You usually want to compare the actual content or attributes of the objects instead.
