@@ -9,14 +9,14 @@ public class MyClass extends InputStream{
     @Override
     public int read() throws IOException{
         if(currentIndex >= data.length()){
-            return -1;
+            return -1; // End of stream
         }else {
-            return data.charAt(currentIndex++);
+            return data.charAt(currentIndex++); // Return the next character as an integer
         }
     }
     @Override
     public int available() throws IOException{
-        return data.length() - currentIndex;
+        return data.length() - currentIndex; // Return the number of characters remaining
     }
 
     public static void main(String[] args) {
@@ -39,6 +39,17 @@ public class MyClass extends InputStream{
                 outputStream.write(data);
             }
             System.out.println("Data written successfully.");
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        try (InputStream inputStream = new FileInputStream("files/output.txt")){
+            System.out.println("\nReading from the file:");
+            int data;
+            while((data = inputStream.read()) != -1){
+                System.out.print((char) data); // Convert byte data back to char and print it
+            }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
