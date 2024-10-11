@@ -29,29 +29,17 @@ public class Calculator <T extends Volume>{
 class Volume{
     private double radius;
     private double height;
+
     private final double pi = Math.PI;
 
-    public Volume(double height, double radius) {
-        this.height = height;
+    public Volume(double height1, double radius) {
+        this.height = height1;
         this.radius = radius;
     }
 
     public double getPi() {
         return pi;
     }
-
-    public double getHeight() {
-        return height;
-    }
-
-    public void setHeight(double height) {
-        this.height = height;
-    }
-
-    public double getRadius() {
-        return radius;
-    }
-
     public void setRadius(double radius) {
         this.radius = radius;
     }
@@ -71,6 +59,10 @@ class Volume{
         double volume = 2.0/3*getPi() * Math.pow(radius, 3);
         return volume;
     }
+    public double findCuboidVolume(){
+        double volume = 2.0/3*getPi() * Math.pow(radius, 3);
+        return volume;
+    }
 }
 class MainCalculator {
     public static void main(String[] args) {
@@ -79,7 +71,7 @@ class MainCalculator {
             try {
                 System.out.print("Enter radius: ");
                 double radius = userInput.nextDouble();
-                System.out.print("Enter height: ");
+                System.out.print("Enter height1: ");
                 double height = userInput.nextDouble();
 
                 Calculator<Volume> volumeCalculator = new Calculator<>();
