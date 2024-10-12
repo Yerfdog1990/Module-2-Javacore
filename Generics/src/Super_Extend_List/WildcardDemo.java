@@ -34,12 +34,14 @@ public class WildcardDemo {
         }
     }
     // Upper-bounded wildcard method: can accept List of Number or any subclass of Number
+    // "«? extends T» means that the class must be a descendant of T."
     public static void printNumbers(List<? extends Number> numbers){
         for(Number elem2: numbers){
             System.out.println("Number " +elem2);
         }
     }
     // Lower-bounded wildcard method: can accept List of Integer or any superclass of Integer
+    // "«? super T» means that the class must be a ancestor of T."
     public static void addIntegers(List<? super Integer> intList){
         intList.add(10);
         intList.add(20);
