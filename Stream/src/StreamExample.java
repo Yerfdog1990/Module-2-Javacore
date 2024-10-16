@@ -3,6 +3,11 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.stream.Stream;
 
+/*
+The Stream interface in Java is part of the Java Collections Framework and was introduced in Java 8 as a way to process sequences of elements (collections, arrays, etc.) in a functional style.
+It allows for more concise and readable code for processing data.
+ */
+
 public class StreamExample {
     public static void main(String[] args) {
         // Creating an ArrayList and adding elements
