@@ -15,7 +15,7 @@ public class StreamExample {
         Collections.addAll(stringArrayList, "Hello", "From", "Java", "Programming");
 
         // Getting a stream from the ArrayList
-        Stream<String> collectionStream = stringArrayList.stream();
+        Stream<String> collectionStream = getStreamFromArrayList(stringArrayList);
         System.out.println("Stream from collection:");
         collectionStream.forEach(System.out::println);
 
@@ -23,9 +23,17 @@ public class StreamExample {
         String[] stringArray = {"Hello", "From", "Java", "Programming"};
 
         // Getting a stream from the Array
-        Stream<String> arrayStream = Arrays.stream(stringArray);
+        Stream<String> arrayStream = getStreamFromArrays(stringArray);
         System.out.println("\nStream from Array");
         arrayStream.forEach(System.out::println);
 
+    }
+    //Method to get stream from collections
+    public static Stream<String> getStreamFromArrayList(ArrayList<String> stringArrayList){
+        return stringArrayList.stream();
+    }
+    //Method to get stream from arrays
+    public static Stream<String> getStreamFromArrays(String[] stringsArray){
+        return Arrays.stream(stringsArray);
     }
 }
