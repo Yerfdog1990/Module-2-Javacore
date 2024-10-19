@@ -21,11 +21,13 @@ public class Main1 {
         }
 
         // Sort the cats by age in descending order
-        Collections.sort(findCats, new Comparator<Cat>() {
+        Comparator<Cat> catComparator = new Comparator<Cat>() {
+            @Override
             public int compare(Cat o1, Cat o2) {
-                return o2.getAge() - o1.getAge();  // Sort by age (oldest first)
+                return o2.getAge() - o1.getAge();
             }
-        });
+        };
+        Collections.sort(findCats, catComparator);
 
         // Extract the names of the cats
         for (Cat cat : findCats) {
