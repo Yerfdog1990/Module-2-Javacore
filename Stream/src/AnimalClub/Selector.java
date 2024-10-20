@@ -1,6 +1,5 @@
 package AnimalClub;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Selector {
