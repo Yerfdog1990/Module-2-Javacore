@@ -30,7 +30,5 @@ class Main{
         boolean isDog = petObj instanceof Dog;
         System.out.println(isDog);
 
-
-
     }
 }
