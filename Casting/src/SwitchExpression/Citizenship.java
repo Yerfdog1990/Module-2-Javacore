@@ -9,6 +9,7 @@ public class Citizenship {
             String country = userInput.nextLine();
             useSwitchStatement(country);
             useSwitchExpression(country);
+            useYieldKeyword(country);
         }
     }
     static void useSwitchStatement(String country){
@@ -78,5 +79,44 @@ public class Citizenship {
         }
         System.out.println("\nResult using switch expression:");
         System.out.println(country+ " is found in " +continent);
+    }
+    static String useYieldKeyword(String country){
+        var result = switch (country){
+            case "Kenya", "Zambia", "Benin" -> {
+                System.out.println("\nResult using yield keyword:");
+                System.out.println(country + " is found in Africa.");
+                yield "Africa";
+            }
+            case "France", "England", "Spain" -> {
+                System.out.println("\nResult using yield keyword:");
+                System.out.println(country + " is found in Europe.");
+                yield "Europe";
+            }
+            case "Canada", "USA" -> {
+                System.out.println("\nResult using yield keyword:");
+                System.out.println(country + " is found in North America.");
+                yield "North America";
+            }
+            case "Brazil", "Uruguay", "Argentina" -> {
+                System.out.println("\nResult using yield keyword:");
+                System.out.println(country + " is found in South America.");
+                yield "South America";
+            }
+            case "Thailand", "China", "India" ->  {
+                System.out.println("\nResult using yield keyword:");
+                System.out.println(country + " is found in Asia.");
+                yield "Asia";
+            }
+            case "Australia" ->  {
+                System.out.println("\nResult using yield keyword:");
+                System.out.println(country + " is found in Australia.");
+                yield "Australia";
+            }
+            default -> {
+                System.out.println("Unknown continent");
+                yield "Unknown continent";
+            }
+        };
+        return result;
     }
 }
