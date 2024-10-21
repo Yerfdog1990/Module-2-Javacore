@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Casting/Casting.iml" filepath="$PROJECT_DIR$/Casting/Casting.iml" />
       <module fileurl="file://$PROJECT_DIR$/FunctionMethods/FunctionMethods.iml" filepath="$PROJECT_DIR$/FunctionMethods/FunctionMethods.iml" />
       <module fileurl="file://$PROJECT_DIR$/Generics/Generics.iml" filepath="$PROJECT_DIR$/Generics/Generics.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaCore.iml" filepath="$PROJECT_DIR$/JavaCore.iml" />
