@@ -12,8 +12,7 @@ Explanation:
     If not, it executes all the static blocks in the class, which can be used to initialize static variables or perform any static actions needed for the class.
     Static blocks are executed only once, at the time of class loading, and before any instance of the class is created or any static members are accessed.
  */
-import java.io.FileInputStream;
-import java.io.IOException;
+
 import java.util.Properties;
 
 class Cat {
@@ -25,36 +24,22 @@ class Cat {
     static {
         catCount = 0;  // Setting initial value for catCount
         Properties p = new Properties();
-        try {
-            // Load 'cat.properties' to retrieve the 'name-prefix' property
-            FileInputStream fis = new FileInputStream("cat.properties");
-            p.load(fis);
-            namePrefix = p.getProperty("name-prefix");
-        } catch (IOException e) {
-            e.printStackTrace();  // Handle file load exceptions
-        }
+        // Simulating loading 'namePrefix' without exception handling
+        namePrefix = p.getProperty("name-prefix", "DefaultName");
     }
 
     // Second static block to initialize 'maxCatCount'
     static {
         maxCatCount = 50;  // Default value for maxCatCount
         Properties p = new Properties();
-        try {
-            // Load 'max.properties' to retrieve the 'cat-max' property
-            FileInputStream fis = new FileInputStream("max.properties");
-            p.load(fis);
-            String catMaxStr = p.getProperty("cat-max");
-            if (catMaxStr != null) {
-                maxCatCount = Integer.parseInt(catMaxStr);  // Update maxCatCount if found
-            }
-        } catch (IOException e) {
-            e.printStackTrace();  // Handle file load exceptions
-        }
+        // Simulating loading 'cat-max' without exception handling
+        String catMaxStr = p.getProperty("cat-max", "50");
+        maxCatCount = Integer.parseInt(catMaxStr);  // Update maxCatCount with value
     }
+
     public static void main(String[] args) {
         System.out.println("Cat Count: " + Cat.catCount);
         System.out.println("Name Prefix: " + Cat.namePrefix);
         System.out.println("Max Cat Count: " + Cat.maxCatCount);
     }
 }
-
