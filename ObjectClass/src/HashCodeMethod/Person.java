@@ -1,4 +1,4 @@
-package HashMethod;
+package HashCodeMethod;
 /*
 The hashCode() method in Java provides a numeric representation of an object, which is used for performance in hash-based collections like HashMap and HashSet.
 When overriding the equals() method, it is important to also override the hashCode() method to ensure that the contract between equals() and hashCode() is maintained.
