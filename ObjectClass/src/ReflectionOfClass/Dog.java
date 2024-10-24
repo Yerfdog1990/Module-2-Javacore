@@ -1,4 +1,4 @@
-package ClassReflection;
+package ReflectionOfClass;
 /*
 Java Reflection
 In Java, reflection allows us to inspect and manipulate classes, interfaces, constructors, methods, and fields at run time.
@@ -18,7 +18,7 @@ public class Dog {
 
         Dog dog = new Dog(); // create object of Class
         try {
-            Class c1 = Class.forName("ClassReflection.Dog");// Use forName() method to reflect the Dog class
+            Class c1 = Class.forName("ReflectionOfClass.Dog");// Use forName() method to reflect the Dog class
             System.out.println("Class reflection using forName() method: " +c1);
             Class c2 = dog.getClass(); //Using getClass() method to reflect the Dog class.
             System.out.println("Class reflection using getClass() method: " +c2);
