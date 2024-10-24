@@ -43,14 +43,14 @@ class Main {
             for (Method m : methods) {
 
                 // get names of methods
-                System.out.println("Method Name: " + m.getName());
+                System.out.println("Method Name: " + m.getName());//m.getName() - returns the name of a method
 
                 // get the access modifier of methods
-                int modifier = m.getModifiers();
+                int modifier = m.getModifiers();//m.getModifiers() - returns the access modifier of methods in integer form
                 System.out.println("Modifier: " + Modifier.toString(modifier));
 
                 // get the return types of method
-                System.out.println("Return Types: " + m.getReturnType());
+                System.out.println("Return Types: " + m.getReturnType());//m.getReturnType() - returns the return type of methods
                 System.out.println(" ");
             }
         }
