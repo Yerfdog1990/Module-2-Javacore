@@ -4,7 +4,7 @@ public class CountupRecursion {
         countDown(0);
     }
     static void countDown(int x){
-        if(x >= 10){
+        if(x >= 100){
             System.out.println("Boom!");
         }else{
             System.out.println(x);
