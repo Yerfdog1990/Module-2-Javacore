@@ -1,4 +1,4 @@
-public class PrimeNumbers {
+public class PrimeFactors {
     public static void main(String[] args) {
      findPrimaNumbers(132);
     }
