@@ -17,11 +17,11 @@ public class ThreadStates {
         // Creating a new Thread.
         Thread thread = new Thread(new ExampleRunnable());
         // Thread is in NEW state
-        System.out.println("State after thread creation." +thread.getState());
+        System.out.println("State after thread creation - " +thread.getState());
         //Start the thread
         thread.start();
         // Thread is in RUNNABLE state
-        System.out.println("State after calling start. " +thread.getState());
+        System.out.println("State after calling start - " +thread.getState());
 
         try{
             // Make the main thread sleep to give the ExampleRunnable thread a chance to run
@@ -34,7 +34,7 @@ public class ThreadStates {
             // Waiting for the thread to die
             thread.join();
             // Thread is in TERMINATED state after completion
-            System.out.println("State after thread termination " +thread.getState());
+            System.out.println("State after thread termination - " +thread.getState());
         }catch (InterruptedException e){
             e.printStackTrace();
         }
@@ -47,7 +47,7 @@ class ExampleRunnable implements Runnable{
     @Override
     public void run() {
         // Runnable state: Thread is running
-        System.out.println("The thread is running and in state: " +Thread.currentThread().getState());
+        System.out.println("The thread is running and in state - " +Thread.currentThread().getState());
 
         // Synchronized block to demonstrate BLOCKED state
         synchronized (lock){
@@ -55,13 +55,13 @@ class ExampleRunnable implements Runnable{
                 // Timed waiting state using Thread.sleep
                 System.out.println("Thread is sleeping.");
                 Thread.sleep(1000); // TIMED_WAITING state
-                System.out.println("Thread woke up and in state " +Thread.currentThread().getState());
+                System.out.println("Thread woke up and in state - " +Thread.currentThread().getState());
 
                 // Waiting state using Object.wait
                 System.out.println("Thread is waiting for signal ......");
                 lock.wait();
                 lock.notify();
-                System.out.println("Thread got a signal and is now in state." +Thread.currentThread().getState());
+                System.out.println("Thread got a signal and is now in state - " +Thread.currentThread().getState());
             }catch (InterruptedException e){
                 e.printStackTrace();
             }
