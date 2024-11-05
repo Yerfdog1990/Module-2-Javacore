@@ -3,6 +3,7 @@ package MainThread;
 public class Test extends Thread{
     //Main driver method
     public static void main(String[] args) {
+
         //Getting reference to the main method
         Thread t1 = Thread.currentThread();
         //Get name of the main thread
