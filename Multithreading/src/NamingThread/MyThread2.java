@@ -15,7 +15,7 @@ public class MyThread2 extends Thread{
         System.out.println("Old thread 1 name: " +myThread21.getName());
         System.out.println("Old thread 2 name: " +myThread22.getName());
 
-        //Set the thread name after creation
+        //Set the thread name after creation.
         myThread21.setName("Geek 1");
         myThread22.setName("Geek 2");
 
