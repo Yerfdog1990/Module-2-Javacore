@@ -1,7 +1,7 @@
 package Thread.Sleep;
 
 // Java Program for sleeping the main thread.
-public class MyThread {
+public class MainThread {
     public static void main(String[] args) {
         int n = 5;
         for (int i = 0; i < n; i++) {
@@ -12,7 +12,7 @@ public class MyThread {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            System.out.println("Thread " +i+ " is running.");
+            System.out.println(Thread.currentThread().getName()+ " thread " +i+ " is running......");
         }
     }
 }
