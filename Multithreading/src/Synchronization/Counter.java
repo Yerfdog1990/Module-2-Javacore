@@ -1,7 +1,7 @@
 package Synchronization;
 
 public class Counter {
-    private int count;
+    private int count = 0;
 
     //Synchronized Method (increment):
     // The entire method is synchronized to prevent multiple threads from executing it at the same time.
