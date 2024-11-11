@@ -1,6 +1,6 @@
 package StopThread;
 
-public class Clock implements Runnable{
+public class Clock1 implements Runnable{
     @Override
     public void run() {
         while(true){
@@ -22,7 +22,7 @@ public class Clock implements Runnable{
 class ThreadManager{
     public static boolean isClockRun = true;
     public static void main(String[] args) {
-        Clock clockThread = new Clock();
+        Clock1 clockThread = new Clock1();
         Thread obj = new Thread(clockThread);
         obj.start();
         try {
