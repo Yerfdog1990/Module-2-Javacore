@@ -16,6 +16,7 @@ public class SortTreeMap {
         //Prints based on natural order of alphabets
         System.out.println(treeMap);
 
+        //Switching key and value
         TreeMap<Integer, String> treeMap1 = new TreeMap<>();
         treeMap1.put(34,"Godfrey");
         treeMap1.put(4,"John");
