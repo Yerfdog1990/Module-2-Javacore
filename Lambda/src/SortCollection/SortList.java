@@ -3,7 +3,7 @@ package SortCollection;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class DataCollection {
+public class SortList {
     public static void main(String[] args) {
         ArrayList<Integer> age = new ArrayList<>();
         //Add data to collection
