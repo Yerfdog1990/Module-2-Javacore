@@ -13,7 +13,7 @@ public class SortTreeSet{
         treeSet.add("Cyril");
         treeSet.add("Cyrek");
         treeSet.add("Junior");
-        System.out.println(treeSet);
+        System.out.println("Name of students: " +treeSet);
 
     }
 }
