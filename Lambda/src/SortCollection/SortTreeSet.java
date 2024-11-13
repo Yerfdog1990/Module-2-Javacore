@@ -5,7 +5,7 @@ import java.util.TreeSet;
 
 public class SortTreeSet{
     public static void main(String[] args) {
-        TreeSet<String> treeSet = new TreeSet<>((o1, o2) -> o1.compareTo(o2));
+        TreeSet<String> treeSet = new TreeSet<>((o1, o2) -> o2.compareTo(o1));
         treeSet.add("John");
         treeSet.add("Grace");
         treeSet.add("Meshack");
@@ -14,7 +14,7 @@ public class SortTreeSet{
         treeSet.add("Cyrek");
         treeSet.add("Junior");
 
-        ////Prints based on natural order of alphabets
+        ////Prints reverse order of alphabets
         System.out.println("Name of students: " +treeSet);
 
     }
