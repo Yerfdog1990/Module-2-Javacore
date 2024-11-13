@@ -13,6 +13,8 @@ public class SortTreeSet{
         treeSet.add("Cyril");
         treeSet.add("Cyrek");
         treeSet.add("Junior");
+
+        ////Prints based on natural order of alphabets
         System.out.println("Name of students: " +treeSet);
 
     }
