@@ -2,8 +2,7 @@ package CreateThreadUsingLabda;
 
 public class MyThread1 {
     public static void main(String[] args) {
-        // Creating Lambda expression for run() method in
-        // functional interface "Runnable"
+        // Creating Lambda expression for run() method in functional interface "Runnable"
         Runnable thread = () ->{
             // Used to set custom name to the current thread
             Thread.currentThread().setName("MyThread");
