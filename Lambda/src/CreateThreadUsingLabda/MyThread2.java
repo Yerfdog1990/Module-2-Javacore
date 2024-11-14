@@ -10,12 +10,14 @@ public class MyThread2 {
         //Instantiate Thread class
         Thread obj1 = new Thread(myThread2);
         Thread obj2 = new Thread(myThread2);
+        Thread obj3 = new Thread(myThread2);//Default priority - 5
 
         //Set thread priority
-        obj1.setPriority(Thread.MAX_PRIORITY);
-        obj2.setPriority(Thread.MIN_PRIORITY);
+        obj1.setPriority(Thread.MAX_PRIORITY);//Priority - 10
+        obj2.setPriority(Thread.MIN_PRIORITY);//Priority - 1
         //Start thread
         obj1.start();
         obj2.start();
+        obj3.start();
     }
 }
