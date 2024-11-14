@@ -1,6 +1,6 @@
 package CreateThreadUsingLabda;
 
-public class MyThread {
+public class MyThread1 {
     public static void main(String[] args) {
         // Creating Lambda expression for run() method in
         // functional interface "Runnable"
