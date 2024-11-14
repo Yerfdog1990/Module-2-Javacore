@@ -2,6 +2,7 @@ package SortCollection;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class SortList {
     public static void main(String[] args) {
@@ -13,11 +14,36 @@ public class SortList {
         age.add(19);
         age.add(13);
         //Print age pf students before sorting.
-        System.out.println("Aage of students before sorting: " +age);
+        System.out.println("Aage of students (Unordered) before sorting: " +age);
+
+        //Sort using anonymous class
+        Comparator<Integer> ageComparator = new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o1 - o2;
+            }
+        };
+        Collections.sort(age,ageComparator);
+        System.out.println("Age after sorting (ascending) using anonymous class: " + age);
 
         //Sort using collection
-        Collections.sort(age,(Obj1, Obj2)->(Obj1 > Obj2) ? -1 : (Obj1 < Obj2) ? 1 : 0);
-        //print sorted list,
-        System.out.println("Aage of students after sorting: " +age);
+        Collections.sort(age,(Obj1, Obj2)->(Obj1 - Obj2));
+        //print sorted list
+        System.out.println("Age after sorting (ascending) using lambda expression class: "  +age);
+
+        //Sort using anonymous class
+        Comparator<Integer> reverseComparator = new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o2 - o1;
+            }
+        };
+        Collections.sort(age,reverseComparator);
+        System.out.println("Age after sorting (descending) using anonymous class: " + age);
+
+        //Sort using collection
+        Collections.sort(age,(Obj1, Obj2)->(Obj2 - Obj1));
+        //print sorted list
+        System.out.println("Age after sorting (descending) using lambda expression class: "  +age);
     }
 }
