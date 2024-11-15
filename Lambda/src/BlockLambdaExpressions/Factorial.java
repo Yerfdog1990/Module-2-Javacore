@@ -5,6 +5,7 @@ public interface Factorial {
 }
 class Main{
     public static void main(String[] args) {
+        // Block lambda expression
         Factorial findFactorial = (n)->{
             int result = 1;
             // iterating from 1 to the current number
