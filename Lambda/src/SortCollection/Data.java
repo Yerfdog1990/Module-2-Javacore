@@ -9,21 +9,21 @@ public class Data {
         //Covert array to list
         List<Integer> scoreList = new ArrayList<>(Arrays.asList(scores));
         //Print list before sorting
-        System.out.print("Unsorted list: " );
+        System.out.println("Unsorted list: " );
         for(Integer elem : scoreList){
             System.out.print(elem+ ", ");
         }
         //Sorting in ascending order
         Collections.sort(scoreList, (o1,o2) -> (o1 - o2));
         //Print list in ascending order
-        System.out.print("\nAscending ordered list: " );
+        System.out.println("\nAscending ordered list: " );
         for(Integer elem : scoreList){
             System.out.print(elem+ ", ");
         }
         //Sorting in descending order
         Collections.sort(scoreList, (o1,o2) -> (o2 - o1));
         //Print list in ascending order
-        System.out.print("\nDescending ordered list: " );
+        System.out.println("\nDescending ordered list: " );
         for(Integer elem : scoreList){
             System.out.print(elem+ ", ");
         }
