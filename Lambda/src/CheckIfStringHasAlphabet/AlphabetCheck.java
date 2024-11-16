@@ -10,5 +10,8 @@ public class AlphabetCheck {
         System.out.print("\nEnter text: ");
         String text = userInput.nextLine();
         System.out.println("The word " + "\""+text+ "\"" + " contains only alphabets: " + isAlphabetOnly.test(text));
+
+        //Close scanner
+        userInput.close();
     }
 }
