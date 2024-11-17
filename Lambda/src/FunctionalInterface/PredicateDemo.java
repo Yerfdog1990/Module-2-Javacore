@@ -1,5 +1,9 @@
 package FunctionalInterface;
-
+/*
+Predicate<T>
+Function: Represents a boolean-valued function (a condition) that tests an input.
+Method: boolean test(T t)
+ */
 import java.util.function.Predicate;
 
 public class PredicateDemo {
@@ -28,7 +32,7 @@ public class PredicateDemo {
         };
         System.out.println("Using lambda expression. " +n+ " is even: " +isEven2.test(n));
 
-        //Using method referencing
+        //Using method referencing - Reference to static method
         Predicate<Integer> isEven3 = PredicateDemo:: checkEven;
         System.out.println("Using method referencing. " +n+ " is even: " +isEven3.test(n));
     }
