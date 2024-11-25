@@ -1,3 +1,5 @@
+package CreateStream;
+
 import java.util.stream.Stream;
 
 public class Method4 {
