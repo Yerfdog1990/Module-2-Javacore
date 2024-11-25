@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JavaCore.iml" filepath="$PROJECT_DIR$/JavaCore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StreamAPI/StreamAPI.iml" filepath="$PROJECT_DIR$/StreamAPI/StreamAPI.iml" />
     </modules>
   </component>
 </project>
