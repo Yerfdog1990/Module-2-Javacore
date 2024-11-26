@@ -1,3 +1,4 @@
+
 package OOP1_Encapsulation;
 
 import java.util.Scanner;
@@ -83,4 +84,5 @@ class Main {
         }
     }
 }
+
 
