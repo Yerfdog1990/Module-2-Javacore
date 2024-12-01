@@ -21,7 +21,7 @@ public class NonAtomicExample {
         thread2.join();
 
         // The counter might not be 20000 due to race conditions
-        System.out.printf("Final counter value = %d.", counter);
+        System.out.printf("Final counter value (Non-atomic) = %d.", counter);
     }
     private static void increment(){
         for (int i = 0; i < 10000; i++) {
