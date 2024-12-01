@@ -1,4 +1,4 @@
-package LockFramework;
+package ReentrantLock;
 
 // Importing required classes
 import java.text.SimpleDateFormat;
