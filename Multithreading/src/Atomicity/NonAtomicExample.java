@@ -25,7 +25,7 @@ public class NonAtomicExample {
     }
     private static void increment(){
         for (int i = 0; i < 10000; i++) {
-            counter++;
+            counter++; // Not atomic: read-modify-write
         }
     }
 }
