@@ -40,5 +40,11 @@ public class VolatileDemo {
         // Change the flag value
         System.out.println("Main thread is setting flag to false.");
         flag = false;
+
+        /*
+        Explaining the code
+        The flag variable is marked as volatile, ensuring that any update to it is visible across threads.
+        When the main thread sets flag to false, the monitor thread immediately detects this change and exits the loop.
+         */
     }
 }
