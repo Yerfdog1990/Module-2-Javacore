@@ -1,7 +1,7 @@
 package ThreadPriority;
 
 public class NonVolatile {
-    private static boolean flag = false;
+    private static boolean flag = true;
 
     //Main method
     public static void main(String[] args) {
