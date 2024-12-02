@@ -19,7 +19,7 @@ public class NonVolatile {
         }
         System.out.println("Main flag is setting flag to false.");
         flag = false;
-
+        
         /*
         Explanation
         The flag variable is not marked as volatile, so the monitor thread might use a cached value of flag instead of checking the shared memory.
