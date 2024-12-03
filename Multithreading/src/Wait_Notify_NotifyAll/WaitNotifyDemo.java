@@ -30,7 +30,7 @@ public class WaitNotifyDemo {
         Thread waitingThread = new Thread(()->{
             synchronized (lock){
                 System.out.println(Thread.currentThread().getName()+ " is waiting for condition...");
-                while (metCondition){
+                while (!metCondition){
                     try {
                         //Call wait() method to allow thread go into waiting state
                         lock.wait();
