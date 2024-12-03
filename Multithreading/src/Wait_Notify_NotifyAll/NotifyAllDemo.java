@@ -15,7 +15,7 @@ Key Features
 4.Works with wait:
     -Threads in the waiting state can resume only when notify or notifyAll is called on the same object they are waiting for.
  */
-public class NotifyDemo {
+public class NotifyAllDemo {
     private static Object lock = new Object();
     private static boolean metCondition = false;
     //Main method
