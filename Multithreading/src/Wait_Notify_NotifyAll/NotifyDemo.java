@@ -16,5 +16,45 @@ Key Features
     -Threads in the waiting state can resume only when notify or notifyAll is called on the same object they are waiting for.
  */
 public class NotifyDemo {
+    private static Object lock = new Object();
+    private static boolean metCondition = false;
+    //Main method
+    public static void main(String[] args) {
+        //Create waiting threads
+        Thread waitingThread1 = new Thread(()->waitForCondition());
+        Thread waitingThread2 = new Thread(()->waitForCondition());
 
+        //Create notifying thread
+        Thread notifyingThread = new Thread(()->{
+            System.out.println(Thread.currentThread().getName()+ " is setting condition and notifying waiting thread to resume execution.");
+            synchronized (lock){
+                metCondition = true; // Wakes up one waiting thread
+                lock.notifyAll();
+            }
+        });
+        try {
+            //Starting waiting threads
+            waitingThread1.start();
+            waitingThread2.start();
+            // Ensure waiting threads start first
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        //Starting notifying thread
+        notifyingThread.start();
+    }
+    static void waitForCondition(){
+        synchronized (lock){
+            System.out.println(Thread.currentThread().getName()+ " is waiting for condition....");
+            while (!metCondition){
+                try {
+                    lock.wait();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            System.out.println(Thread.currentThread().getName()+ " has been notified and ready to execute.");
+        }
+    }
 }
