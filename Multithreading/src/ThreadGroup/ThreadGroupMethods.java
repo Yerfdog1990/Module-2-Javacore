@@ -61,6 +61,7 @@ public class ThreadGroupMethods {
             } catch (InterruptedException e) {
                 System.out.println(Thread.currentThread().getName()+ " was interrupted.");
             }
+            System.out.println(Thread.currentThread().getName() + " finished executing");
         }
     }
 }
