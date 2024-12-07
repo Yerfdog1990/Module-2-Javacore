@@ -79,7 +79,7 @@ class kiteFactory extends ShapeFactory{
 }
 // Step 5: Client Code
 //Client (FactoryMethodDemo): Decides which factory to use and delegates the object creation.
-class FactoryMethodDemo{
+class FactoryMethodDemo1{
     public static void main(String[] args) {
         // Dynamically determine which factory to use
         ShapeFactory shapeFactory;
