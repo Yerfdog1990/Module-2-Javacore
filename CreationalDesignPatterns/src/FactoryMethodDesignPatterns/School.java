@@ -1,5 +1,7 @@
 package FactoryMethodDesignPatterns;
 
+import java.util.Scanner;
+
 public interface School {
     void selectOffice();
 }
@@ -52,7 +54,7 @@ class schoolCounselorFactory extends SchoolFactory{
         return new schoolCounselor();
     }
 }
-class academicDeadFactory extends SchoolFactory{
+class academicDeanFactory extends SchoolFactory{
     @Override
     School bookAppointment() {
         return new academicDean();
@@ -73,5 +75,37 @@ class schoolAccountantFactory extends SchoolFactory{
 class FactoryMethodDemo2{
     public static void main(String[] args) {
 
+        try(Scanner booking = new Scanner(System.in)){
+
+            SchoolFactory schoolFactory = null;
+            while (schoolFactory == null){
+                System.out.print("Enter the office you want to visit: ");
+                String userInput = booking.nextLine();
+                try{
+                    switch (userInput.toLowerCase()){
+                        case "principal":
+                            schoolFactory = new schoolHeadFactory();
+                            break;
+                        case ("counselor"):
+                            schoolFactory = new schoolCounselorFactory();
+                            break;
+                        case "dean":
+                            schoolFactory = new academicDeanFactory();
+                            break;
+                        case "class":
+                            schoolFactory = new classTeacherFactory();
+                            break;
+                        case "accountant":
+                            schoolFactory = new schoolAccountantFactory();
+                            break;
+                        default:
+                            throw new IllegalArgumentException("Invalid office! Try again.");
+                    }
+                }catch (IllegalArgumentException e){
+                    System.out.println(e.getMessage());
+                }
+            }
+            schoolFactory.renderService();
+        }
     }
 }
