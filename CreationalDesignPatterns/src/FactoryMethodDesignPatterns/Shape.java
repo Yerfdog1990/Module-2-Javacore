@@ -2,12 +2,23 @@ package FactoryMethodDesignPatterns;
 
 import java.util.Scanner;
 /*
-Factory Method Design Pattern
-This pattern is typically helpful when it’s necessary to separate the construction of an object from its implementation.
-With the use of this design pattern, objects can be produced without having to define the exact class of object to be created. Below is when to use Factory Method Design Pattern:
-    1.A class can't anticipate the class of objects it must create.
-    2.class wants its subclass to specify the objects it creates.
-Classes delegate responsibility to one of several helper subclasses, and you want to localize the knowledge of which helper subclass is the delegate.
+Factory Design Pattern
+Definition:
+The Factory Design Pattern provides a way to create objects without specifying the exact class of the object that will be created.
+Below is when to use Factory Method Design Pattern:
+    1. A class can't anticipate the class of objects it must create.
+    2. A class wants its subclass to specify the objects it creates.
+    3. Classes delegate responsibility to one of several helper subclasses, and you want to localize the knowledge of which helper subclass is the delegate.
+
+Key Characteristics:
+    1. Creates a single type of product (e.g., different types of shapes).
+    2. Provides a single factory method for creating an object.
+    3. Clients are decoupled from the specific classes they use.
+
+Structure:
+    1. Product Interface: Declares the type of object the factory will create.
+    2. Concrete Products: Implement the product interface.
+    3. Factory Class: Contains the logic to create objects based on input conditions.
  */
 //Shape (Product Interface): Defines the common interface for all objects the factory can create.
 public interface Shape {
