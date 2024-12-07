@@ -8,14 +8,18 @@ Definition
 The Prototype Design Pattern is a creational design pattern used to create new objects by copying (or cloning) existing objects.
 This approach hides the complexity of creating instances and allows clients to create new objects without knowing the details of how those objects are created.
 Instead of instantiating a class directly, a client copies an existing object, which may involve expensive or complex initialization.
+Below is when to use Prototype Method:
+    1.Use the Prototype pattern when a system should be independent of how its products are created, composed, and represented; and
+    2.When the classes to instantiate are specified at run-time, for example, by dynamic loading.
+    3.To avoid building a class hierarchy offactories that parallels the class hierarchy of products.
 
 Key Features
-1.Cloning Instead of Instantiation: New objects are created by copying prototypes rather than creating new instances through constructors.
-2.Decouples Object Creation: Clients are independent of the concrete classes and their instantiation logic.
-3.Reduces Subclassing: Instead of having a hierarchy of factory classes for creating objects, the Prototype pattern uses cloning, reducing the need for complex factory hierarchies.
-4.Dynamic Object Creation: New objects can be created dynamically at runtime by copying existing instances.
-5.Simplifies Complex Object Initialization: If the creation of an object involves costly or time-consuming operations, the Prototype pattern can simplify and speed up the process by cloning pre-initialized objects.
-6.Preserves Object State: Cloning ensures that the new object has the same state as the prototype, which can be beneficial when the state initialization is non-trivial.
+    1.Cloning Instead of Instantiation: New objects are created by copying prototypes rather than creating new instances through constructors.
+    2.Decouples Object Creation: Clients are independent of the concrete classes and their instantiation logic.
+    3.Reduces Subclassing: Instead of having a hierarchy of factory classes for creating objects, the Prototype pattern uses cloning, reducing the need for complex factory hierarchies.
+    4.Dynamic Object Creation: New objects can be created dynamically at runtime by copying existing instances.
+    5.Simplifies Complex Object Initialization: If the creation of an object involves costly or time-consuming operations, the Prototype pattern can simplify and speed up the process by cloning pre-initialized objects.
+    6.Preserves Object State: Cloning ensures that the new object has the same state as the prototype, which can be beneficial when the state initialization is non-trivial.
 
 Structure
 The Prototype Design Pattern consists of the following components:
