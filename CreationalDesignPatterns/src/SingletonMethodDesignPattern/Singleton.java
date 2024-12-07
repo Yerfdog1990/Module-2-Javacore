@@ -4,7 +4,9 @@ Singleton Design Pattern
 Definition
 The Singleton Design Pattern ensures that a class has only one instance and provides a global access point to that instance.
 This pattern is useful when exactly one object is needed to coordinate actions across a system.
-
+Below is when to use Singleton Method:
+    1. There must be exactly one instance of a class, and it must be accessible to clients from a well-known access point.
+    2. When the sole instance should be extensible by subclassing, and clients should be able to use an extended instance without modifying their code.
 Key Characteristics
     1.Single Instance: Ensures that only one instance of the class exists in the system.
     2.Global Access Point: Provides a way to access the single instance globally.
