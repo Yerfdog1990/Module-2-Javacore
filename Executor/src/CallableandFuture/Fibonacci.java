@@ -40,7 +40,7 @@ public class Fibonacci implements Callable {
         return futureTask;
     }
 }
-class CallableandFutureDemo{
+class CalculateFibonacciNumbers {
 
     public static void main(String[] args) throws Exception{
         Map<Integer, Future<Integer>> tasks = new HashMap<>();
