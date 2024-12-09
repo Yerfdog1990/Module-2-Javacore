@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CallableandFuture/CallableandFuture.iml" filepath="$PROJECT_DIR$/CallableandFuture/CallableandFuture.iml" />
       <module fileurl="file://$PROJECT_DIR$/Casting/Casting.iml" filepath="$PROJECT_DIR$/Casting/Casting.iml" />
       <module fileurl="file://$PROJECT_DIR$/ConcurrentProgramming/ConcurrentProgramming.iml" filepath="$PROJECT_DIR$/ConcurrentProgramming/ConcurrentProgramming.iml" />
       <module fileurl="file://$PROJECT_DIR$/CreationalDesignPatterns/CreationalDesignPatterns.iml" filepath="$PROJECT_DIR$/CreationalDesignPatterns/CreationalDesignPatterns.iml" />
