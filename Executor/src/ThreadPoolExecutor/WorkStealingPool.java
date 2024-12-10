@@ -13,6 +13,7 @@ public class WorkStealingPool {
         ExecutorService executor = Executors.newWorkStealingPool(4);
         // Create a collection of tasks to execute
         Collection<Callable<Void>> tasks = new ArrayList<>();
+        //Create task
         for (int i = 0; i < 10; i++) {
             int taskNumber = i;
             Callable<Void> callable = ()->{
@@ -23,10 +24,12 @@ public class WorkStealingPool {
             tasks.add(callable);
         }
         try{
+            // Invoke all tasks
             executor.invokeAll(tasks);
         }catch (InterruptedException e){
             e.printStackTrace();
         }finally {
+            // Shutdown the executor service
             executor.shutdown();
             executor.awaitTermination(5, TimeUnit.SECONDS);
         }
