@@ -10,7 +10,7 @@ public class ScheduledThreadPool implements Runnable {
     public void run() {
         System.out.println("Checking email.....");
     }
-
+    //Main method
     public static void main(String[] args) {
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(2);
         // Schedule the task to run periodically every 2 seconds, starting after a 1-second delay
