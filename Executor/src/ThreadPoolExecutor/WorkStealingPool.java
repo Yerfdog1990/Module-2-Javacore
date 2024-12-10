@@ -17,7 +17,7 @@ public class WorkStealingPool {
         for (int i = 0; i < 10; i++) {
             int taskNumber = i;
             Callable<Void> callable = ()->{
-                System.out.printf("Process task #%d on thread id%d.\n", taskNumber, Thread.currentThread().getId());
+                System.out.printf("Processed user request #%d on thread id%d.\n", taskNumber, Thread.currentThread().getId());
                 TimeUnit.SECONDS.sleep(1); // Simulate task processing time
                 return null;
             };
