@@ -7,7 +7,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class WorkStealingPool {
+public class WorkStealingPool1 {
     public static void main(String[] args) throws InterruptedException{
         // Use newWorkStealingPool with specified parallelism level
         ExecutorService executor = Executors.newWorkStealingPool(4);
