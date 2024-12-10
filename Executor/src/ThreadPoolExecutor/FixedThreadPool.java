@@ -15,7 +15,7 @@ public class FixedThreadPool implements Runnable{
     @Override
     public void run() {
         try{
-            Thread.sleep(1000);
+            TimeUnit.SECONDS.sleep(2);
         }catch (InterruptedException e){
             System.out.println(Thread.currentThread().getName()+ " was interrupted.");
         }
@@ -31,10 +31,17 @@ public class FixedThreadPool implements Runnable{
                 return thread;
             }
         });
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 100; i++) {
             executor.execute(new FixedThreadPool(i));
         }
-        executor.awaitTermination(30, TimeUnit.SECONDS);
+        executor.awaitTermination(10, TimeUnit.SECONDS);
         executor.shutdown();
+        System.out.println(executor);
     }
 }
+/*
+We can see that when the program ends, 15 tasks are done, but the pool still had 3 active threads that did not finish executing their tasks. The interrupt() method is called on these three threads, which means that the task will complete, but in our case, the sleep method throws an InterruptedException. We also see that after the shutdownNow() method is called, the task queue is cleared.
+So when using an ExecutorService with a fixed number of threads in the pool, be sure to remember how it works. This type is suitable for tasks with a known constant load.
+Here's another interesting question: if you need to use an executor for a single thread, which method should you call? newSingleThreadExecutor() or newFixedThreadPool(1)?
+Both executors will have equivalent behavior. The only difference is that the newSingleThreadExecutor() method will return an executor that cannot be later reconfigured to use additional threads.
+ */
