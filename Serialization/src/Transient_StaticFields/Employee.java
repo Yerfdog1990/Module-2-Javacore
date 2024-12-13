@@ -2,6 +2,20 @@ package Transient_StaticFields;
 
 import java.io.*;
 
+/**
+ * Represents an Employee with name, age, and other attributes.
+ * This class implements the Serializable interface to enable serialization
+ * of its objects. Fields marked as transient are not serialized, and static
+ * fields are not specific to an instance and are also not serialized.
+ *
+ * The static field is shared across all instances of the class, while the
+ * transient field is excluded from the serialization process, defaulting to
+ * its standard value upon deserialization.
+ *
+ * Note: This class adheres to standard serialization practices by defining a
+ * serialVersionUID to ensure compatibility during the serialization and
+ * deserialization processes.
+ */
 public class Employee implements Serializable {
     // Unique identifier for serialization (this is standard practice)
     private static final long serialVersionUID = 1L;
@@ -13,6 +27,14 @@ public class Employee implements Serializable {
     String name;
     int age;
 
+    /**
+     * Constructs a new Employee instance with the specified attributes.
+     *
+     * @param temporaryField the temporary field value, which is transient and not serialized
+     * @param name the name of the employee
+     * @param age the age of the employee
+     * @param staticField the static field value shared across all Employee instances
+     */
     public Employee(int temporaryField, String name, int age, int staticField) {
         this.temporaryField = temporaryField;
         this.name = name;
