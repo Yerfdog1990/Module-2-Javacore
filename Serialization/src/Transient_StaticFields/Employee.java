@@ -70,7 +70,6 @@ class SerializationDemo {
         String fileName = "employee.ser";
         try(ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fileName))){
             out.writeObject(employee);
-            out.close();
             System.out.println("Object serialized successfully.");
             System.out.println("Data before deserialization:");
             printEmployeeDetails(employee);
@@ -83,7 +82,6 @@ class SerializationDemo {
         employee = null;
         try(ObjectInputStream in = new ObjectInputStream(new FileInputStream(fileName))){
             employee = (Employee) in.readObject();
-            in.close();
             System.out.println("\nObject deserialized successfully.");
             System.out.println("Data after deserialization:");
             printEmployeeDetails(employee);
