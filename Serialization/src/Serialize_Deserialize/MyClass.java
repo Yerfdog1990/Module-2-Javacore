@@ -39,6 +39,8 @@ public class MyClass implements Serializable {
         }catch (Exception e){
             System.out.println("Exception was caught.");
         }
+        // Set the myClass object to null to clear the reference
+        myClass = null;
         //Perform deserialization
         try(ObjectInputStream in = new ObjectInputStream(new FileInputStream(fileName))){
             MyClass myClass1 = (MyClass) in.readObject();
