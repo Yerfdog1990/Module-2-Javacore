@@ -38,6 +38,10 @@ class SerializationDemo {
      *
      * In case of transient variables:- A variable defined with transient keyword is not serialized during serialization process.This variable will be initialized with default value during deserialization. (e.g: for objects it is null, for int it is 0).
      * In case of static Variables:- A variable defined with static keyword is not serialized during serialization process.This variable will be loaded with current value defined in the class during deserialization.
+     * Transient Vs Final:
+     * final variables will be participated into serialization directly by their values.
+     * Hence declaring a final variable as transient there is no use.
+     * //the compiler assign the value to final variable
      */
     public static void main(String[] args) {
         Employee employee = new Employee(42, "Juma", 34, 1000);
