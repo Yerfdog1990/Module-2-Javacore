@@ -2,9 +2,19 @@ package SerializationWithInheritance;
 
 import java.io.*;
 
-/*
-Java Serialization with Inheritance (IS-A Relationship)
-If a class implements Serializable interface then all its subclasses will also be serializable.
+/**
+ * Demonstrates the Java serialization and deserialization process in the context
+ * of inheritance. This class utilizes the IS-A relationship where if a class implements
+ * the Serializable interface, its subclasses also become serializable.
+ *
+ * The main method showcases:
+ * - Initialization and usage of a `Student` (subclass of `Person`) object.
+ * - Printing the details of a `Student` object.
+ * - Serializing the `Student` object to a file.
+ * - Deserializing the `Student` object from the file and reconstructing it in memory.
+ *
+ * This ensures that objects of subclasses like `Student`, which extend the `Person` class
+ * that implements Serializable, can also be serialized and deserialized seamlessly.
  */
 public class SerializeIsA {
   /**
@@ -32,7 +42,6 @@ public class SerializeIsA {
     }
   }
 }
-
 class Person implements Serializable {
   private final String name;
   private final int age;
@@ -41,11 +50,9 @@ class Person implements Serializable {
     this.name = name;
     this.age = age;
   }
-
   public String getName() {
     return name;
   }
-
   public int getAge() {
     return age;
   }
