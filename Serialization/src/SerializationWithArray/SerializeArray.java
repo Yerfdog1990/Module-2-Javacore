@@ -2,6 +2,22 @@ package SerializationWithArray;
 
 import java.io.*;
 
+/**
+ * The SerializeArray class demonstrates the process of serializing and deserializing objects
+ * in Java using the ClassRegister class. It handles file input/output operations to persist
+ * state and retrieve the serialized object.
+ *
+ * This class performs the following actions:
+ * 1. Prints the names in the ClassRegister object.
+ * 2. Serializes the ClassRegister object to a file named "classRegister.ser".
+ * 3. Deserializes the ClassRegister object from the file.
+ *
+ * Exception handling is implemented to provide feedback about the success or failure
+ * of serialization and deserialization processes.
+ *
+ * Instances of ClassRegister are serialized and deserialized using ObjectOutputStream
+ * and ObjectInputStream, respectively.
+ */
 public class SerializeArray {
     public static void main(String[] args) {
         ClassRegister classRegister = new ClassRegister();
