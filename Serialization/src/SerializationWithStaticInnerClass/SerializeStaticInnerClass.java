@@ -52,6 +52,8 @@ class Person implements Serializable {
         return age;
     }
     static class Student implements Serializable {
+        @Serial
+        private static final long serialVersionUID = 1L;
         private final String major;
         Person person;
 
