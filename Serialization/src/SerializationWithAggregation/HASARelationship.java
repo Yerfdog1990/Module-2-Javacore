@@ -5,6 +5,20 @@ import java.io.ObjectOutputStream;
 import java.io.Serial;
 import java.io.Serializable;
 
+/**
+ * The HASARelationship class demonstrates the HAS-A (composition) relationship in object-oriented programming.
+ * It represents a relationship where a class contains a reference to another class.
+ *
+ * In this example:
+ * - The Person class models a person with attributes such as name and age.
+ * - The Student class contains a reference to a Person object, representing the HAS-A relationship.
+ *
+ * Features:
+ * - Demonstrates how a Student object "has a" Person.
+ * - The Student object also has a major field representing the student's major subject.
+ * - Illustrates the concept of serialization and deserialization of objects.
+ * - Prints the details of the Student object, including the associated Person details.
+ */
 public class HASARelationship {
     public static void main(String[] args) {
         Person person = new Person("John", 25);
