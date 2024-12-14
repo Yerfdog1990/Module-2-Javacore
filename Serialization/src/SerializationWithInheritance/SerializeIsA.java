@@ -43,6 +43,8 @@ public class SerializeIsA {
   }
 }
 class Person implements Serializable {
+  @Serial
+  private static final long serialVersionUID = 1L;
   private final String name;
   private final int age;
 
