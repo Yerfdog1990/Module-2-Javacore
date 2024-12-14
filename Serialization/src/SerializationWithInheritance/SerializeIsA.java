@@ -27,9 +27,8 @@ public class SerializeIsA {
   public static void main(String[] args) {
     Student student = new Student("John", 25, "Computer Science");
     student.printDetails();
-    try (ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream()) {
-      FileOutputStream outputStream = new FileOutputStream("student.ser");
-      outputStream.write(byteArrayOutputStream.toByteArray());
+    try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("student.ser"))) {
+      outputStream.writeObject(student);
       System.out.println("Object was successfully serialized.");
     }catch (Exception e){
       System.out.println("Object was not serialized.");
