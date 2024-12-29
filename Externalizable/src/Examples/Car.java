@@ -19,7 +19,16 @@ public class Car implements Externalizable {
         YoM = yoM;
         this.mileage = mileage;
     }
-
+    //Getters
+    public int getMileage() {
+        return mileage;
+    }
+    public int getYoM() {
+        return YoM;
+    }
+    public String getModel() {
+        return model;
+    }
     @Override
     public String toString() {
         return ("\nModel: " +model+
@@ -28,13 +37,13 @@ public class Car implements Externalizable {
     }
     @Override
     public void writeExternal(ObjectOutput out) throws IOException {
-        //out.writeObject(model);
-        out.writeInt(YoM);
-        out.writeInt(mileage);
+        out.writeObject(this.getModel());
+        out.writeInt(this.getYoM());
+        out.writeInt(this.getMileage());
     }
     @Override
-    public void readExternal(ObjectInput in) throws IOException {
-        //model = (String)in.readObject();
+    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+        model = (String)in.readObject();
         YoM = in.readInt();
         mileage = in.readInt();
     }
