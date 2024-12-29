@@ -21,7 +21,7 @@ public class Person1 {
     public String getGender() {
         return gender;
     }
-    static class Employee extends Person1 implements Externalizable{
+    static class Employee extends Person2 implements Externalizable{
         private static final long serialVersionUID = 1L;
         private String department;
         private String employeeID;
