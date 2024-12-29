@@ -42,12 +42,12 @@ public class Car implements Externalizable {
 class ExternalizableExample1{
     //Main method
     public static void main(String[] args) {
-        Car car1 = new Car("Mercedes Benz", 2024, 15000);
-        Car car2 = null;
+        Car car = new Car("Mercedes Benz", 2024, 15000);
+        Car newCar = null;
         //Serialize the car
         try{
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("car.ser"));
-            out.writeObject(car1);
+            out.writeObject(car);
             out.flush();
         }catch (Exception e){
             System.out.println(e.getMessage());
@@ -55,11 +55,11 @@ class ExternalizableExample1{
         //Deserialize the car
         try{
             ObjectInputStream in = new ObjectInputStream(new FileInputStream("car.ser"));
-            car2 = (Car) in.readObject();
+            newCar = (Car) in.readObject();
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
-        System.out.println("\nSerialized car fields: " +car1);
-        System.out.println("\nDeserialized car fields: " +car2);
+        System.out.println("\nSerialized car fields: " +car);
+        System.out.println("\nDeserialized car fields: " +newCar);
     }
 }
