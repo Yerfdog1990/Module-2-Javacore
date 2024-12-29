@@ -3,6 +3,8 @@ package Examples;
 import java.io.*;
 
 public class Car implements Externalizable {
+    @Serial
+    private static final long serialVersionUID = 1L;
     private String model;
     private  int YoM;
     private int mileage;
@@ -31,20 +33,10 @@ public class Car implements Externalizable {
         out.writeInt(mileage);
     }
     @Override
-    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+    public void readExternal(ObjectInput in) throws IOException {
         //model = (String)in.readObject();
         YoM = in.readInt();
         mileage = in.readInt();
-    }
-    //Getters
-    public int getMileage() {
-        return mileage;
-    }
-    public int getYoM() {
-        return YoM;
-    }
-    public String getModel() {
-        return model;
     }
 }
 class ExternalizableExample1{
