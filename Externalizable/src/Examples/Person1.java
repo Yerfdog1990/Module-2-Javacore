@@ -3,15 +3,15 @@ package Examples;
 import java.io.*;
 import java.util.Base64;
 
-public class Person {
+public class Person1 {
     private static final long serialVersionUID = 1L;
     private static String name;
     private static String gender;
 
-    public Person() {
+    public Person1() {
     }
 
-    public Person(String gender, String name) {
+    public Person1(String gender, String name) {
         this.gender = gender;
         this.name = name;
     }
@@ -21,7 +21,7 @@ public class Person {
     public String getGender() {
         return gender;
     }
-    static class Employee extends Person implements Externalizable{
+    static class Employee extends Person1 implements Externalizable{
         private static final long serialVersionUID = 1L;
         private String department;
         private String employeeID;
