@@ -18,6 +18,7 @@
       <module fileurl="file://$PROJECT_DIR$/ObjectOrientedProgramming/ObjectOrientedProgramming.iml" filepath="$PROJECT_DIR$/ObjectOrientedProgramming/ObjectOrientedProgramming.iml" />
       <module fileurl="file://$PROJECT_DIR$/PeculiaritiesOfCallingConstructors/PeculiaritiesOfCallingConstructors.iml" filepath="$PROJECT_DIR$/PeculiaritiesOfCallingConstructors/PeculiaritiesOfCallingConstructors.iml" />
       <module fileurl="file://$PROJECT_DIR$/Recursion/Recursion.iml" filepath="$PROJECT_DIR$/Recursion/Recursion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ReflectionAPI/ReflectionAPI.iml" filepath="$PROJECT_DIR$/ReflectionAPI/ReflectionAPI.iml" />
       <module fileurl="file://$PROJECT_DIR$/Serialization/Serialization.iml" filepath="$PROJECT_DIR$/Serialization/Serialization.iml" />
       <module fileurl="file://$PROJECT_DIR$/Stream/Stream.iml" filepath="$PROJECT_DIR$/Stream/Stream.iml" />
     </modules>

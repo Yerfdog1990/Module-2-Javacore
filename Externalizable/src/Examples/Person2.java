@@ -5,6 +5,7 @@ import java.util.Base64;
 
 //Super class
 public class Person2 implements Externalizable {
+    @Serial
     private static final long serialVersionUID = 1L;
     private static String name;
     private static String gender;
@@ -12,8 +13,8 @@ public class Person2 implements Externalizable {
     public Person2() {
     }
     public Person2(String gender, String name) {
-        this.gender = gender;
-        this.name = name;
+        Person2.gender = gender;
+        Person2.name = name;
     }
     public String getName() {
         return name;
@@ -33,6 +34,7 @@ public class Person2 implements Externalizable {
     }
     //Subclass
     static class Employee extends Person2 implements Externalizable{
+        @Serial
         private static final long serialVersionUID = 1L;
         private String department;
         private String employeeID;
