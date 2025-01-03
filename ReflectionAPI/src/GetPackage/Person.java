@@ -25,8 +25,7 @@ public class Person {
         Class<?> personInstance = Person.class;
         String classPackage1 = personInstance.getPackageName();
         System.out.println(classPackage1);
-        final Package classPackage2= personInstance.getPackage();
+        final Package classPackage2 = personInstance.getPackage();
         System.out.println(classPackage2);
-
     }
 }
