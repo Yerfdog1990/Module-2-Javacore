@@ -27,7 +27,7 @@ public class Person {
     public static void main(String[] args) {
         try {
             // Get the Class object
-            Class<?> personClass = Class.forName("GetClassName.Person");
+            Class<?> personClass = Class.forName("GetMethodName.Person");
             // 1. Using getDeclaredMethods()
             System.out.println("Using getDeclaredMethods():");
             Method[] declaredMethods = personClass.getDeclaredMethods();
