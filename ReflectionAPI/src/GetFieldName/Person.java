@@ -35,13 +35,13 @@ public class Person {
             System.out.println("Using getDeclaredField():");
             Field[] declaredFields = personClass.getDeclaredFields();
             for(Field field : declaredFields){
-                System.out.println(field.getName());
+                System.out.printf("Name: %s%nType: %s%n", field.getName(), field.getType());
             }
             // Using getFields
-            System.out.println("Using getFields():");
+            System.out.println("\nUsing getFields():");
             Field[] fields = personClass.getFields();
             for(Field field : fields){
-                System.out.println(field.getName());
+                System.out.printf("Name: %s%nType: %s%n", field.getName(), field.getType());
             }
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
