@@ -27,8 +27,13 @@ public class Person {
     public static void main(String[] args) {
         Class<?> personInstance = Person.class;
         Method[] methods = personInstance.getDeclaredMethods();
+        System.out.println("Get a return type():");
         for (Method method : methods) {
             System.out.printf("%s%n", method.getReturnType());
+        }
+        System.out.println("\nGeneric get return type():");
+        for (Method method : methods) {
+            System.out.printf("%s%n", method.getGenericReturnType());
         }
     }
 }
