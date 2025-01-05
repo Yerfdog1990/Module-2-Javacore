@@ -29,6 +29,7 @@ public class Person<T, U> {
         System.out.println("Get a parameter type():");
         for (TypeVariable<?> type : typeParameters) {
             System.out.printf("Name: %s%n", type.getName());
+            System.out.printf("Bounds: %s%n", type.getBounds()[0]);
         }
         System.out.println("\nGeneric parameter type():");
         for (TypeVariable<?> type : typeParameters) {
