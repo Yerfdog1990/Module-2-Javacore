@@ -1,7 +1,5 @@
 package GetSuperClass;
 
-import java.lang.classfile.Superclass;
-
 class Man{
 
 }
@@ -30,6 +28,5 @@ public class Person extends Man{
         Class<Person> personInstance = Person.class;
         Class<? super Person> superClass = personInstance.getSuperclass();
         System.out.println(superClass);
-
     }
 }
