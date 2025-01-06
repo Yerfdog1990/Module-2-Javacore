@@ -30,6 +30,9 @@ class Man implements Person{
     public String getCountry() {
         return country;
     }
+    public String getCareer() {
+        return career;
+    }
     @Override
     public void introduce(String name) {
         System.out.printf("My name is %s.", name);
