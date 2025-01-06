@@ -31,6 +31,7 @@ public class Person {
     //Main method
     public static void main(String[] args) {
         try {
+            @Deprecated
             Person person = Person.class.newInstance();
             System.out.println(person);
         } catch (InstantiationException | IllegalAccessException e) {
