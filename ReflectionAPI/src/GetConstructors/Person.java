@@ -44,5 +44,7 @@ public class Person {
         Constructor<?>[] declaredConstructors = personClass.getDeclaredConstructors();
         Arrays.stream(declaredConstructors).forEach(System.out::println);
 
+
+
     }
 }
