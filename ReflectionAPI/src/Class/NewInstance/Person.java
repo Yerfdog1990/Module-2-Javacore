@@ -1,11 +1,9 @@
 package Class.NewInstance;
 
-import java.lang.reflect.Field;
-
 public class Person {
-    private String name;
-    private int age;
-    private String career;
+    private final String name;
+    private final int age;
+    private final String career;
 
     {
         name = "Yerfdog";
