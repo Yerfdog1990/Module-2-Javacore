@@ -16,12 +16,12 @@ public @interface Info {
 // Apply the Annotation
 @Info(author = "Alice", version = "1.0") // Applied to a class
 class MyClass1 {
-    @Info(author = "Alice", version = "1.1" )
+    @Info(author = "Alice", version = "1.1" ) // Applied to a method
     public void myMethod1() {
         System.out.println("MyClass1: myMethod1 is running");
     }
 }
-@Info(author = "Juma", version = "2.8")
+@Info(author = "Juma", version = "2.8") // Applied to a class
 class MyClass2 {
     @Info(author = "Juma") // Default version is used
     public void myMethod2() {
