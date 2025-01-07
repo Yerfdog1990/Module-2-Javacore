@@ -25,13 +25,17 @@ class MyClass1 {
 class MyClass2 {
     @Info(author = "Juma") // Default version is used
     public void myMethod2() {
-        System.out.println("MyClass2: muMethod2 is running");
+        System.out.println("MyClass2: muMethod2 is running\n");
     }
 }
 //Process the Annotation at Runtime
 class AnnotationProcessor {
     public static void main(String[] args) {
         // Array of classes to process
+        MyClass1 myClass1 = new MyClass1();
+        myClass1.myMethod1();
+        MyClass2 myClass2 = new MyClass2();
+        myClass2.myMethod2();
         Class<?>[] classes = {MyClass1.class, MyClass2.class};
         for(Class<?> aClass : classes){
             // Check if the class has the Info annotation
