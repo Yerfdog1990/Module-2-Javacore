@@ -18,8 +18,10 @@ public class EchoClient {
             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             String response = in.readLine();
             System.out.println(response);
+            clientSocket.close();
         }catch (Exception e){
             e.printStackTrace();
         }
+        System.out.println("Client ended");
     }
 }
