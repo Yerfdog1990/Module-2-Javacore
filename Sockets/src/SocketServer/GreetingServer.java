@@ -39,7 +39,7 @@ public class GreetingServer extends Thread {
                 // Send a response back to the client.
                 OutputStream outToServer = server.getOutputStream();
                 DataOutputStream dataOut = new DataOutputStream(outToServer);
-                dataOut.writeUTF(String.format("Thank you for connecting to %s%n Goodbye!", server.getLocalSocketAddress()));
+                dataOut.writeUTF(String.format("Thank you for connecting to %s%nGoodbye!", server.getLocalSocketAddress()));
 
                 // Close the connection with the client.
                 server.close();
@@ -61,7 +61,7 @@ public class GreetingServer extends Thread {
      */
     public static void main(String[] args) {
         // Ensure a port number is provided as an argument.
-        int portNumber = Integer.parseInt(args[0]);
+        int portNumber = 9806;
         try {
             // Start the server as a separate thread.
             Thread t = new GreetingServer(portNumber);
