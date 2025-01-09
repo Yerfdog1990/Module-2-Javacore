@@ -7,8 +7,8 @@ import java.net.*;
 public class GreetingClient {
     public static void main(String[] args) {
         // Get server name and port number from command-line arguments
-        String serverName = args[0];
-        int portNumber = Integer.parseInt(args[1]);
+        String serverName = "localhost";
+        int portNumber = 9806;
         try {
             // Establish a connection to the specified server and port
             System.out.printf("Connecting %s on server port %d%n", serverName, portNumber);
