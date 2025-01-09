@@ -22,5 +22,6 @@ public class EchoClient {
         }catch (Exception e){
             e.printStackTrace();
         }
+        System.out.println("Client ended");
     }
 }
