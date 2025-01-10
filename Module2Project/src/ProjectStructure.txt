@@ -17,7 +17,14 @@ Before diving into coding, it's important to structure the program into several 
 2.Step-by-Step Implementation
 	Step 2.1: Define the `Animal` Class
 		#Step 2.1: Create an abstract base class `Animal` to represent shared behavior for all animals.
-		#Step 2.2: Create Specific Animal Classes such as `Carnivores.Wolf`, `Carnivores.Bear`, `Herbivores.Rabbit`, etc., that extend `Animal`
+		#Step 2.2: Create Specific Animal Classes such as `Wolf`, `Bear`, `Rabbit`, etc., that extend `Animal`
 		#Step 2.3: Define the `Plant` Class. Since plants don't behave like animals, the `Plant` class can be simple.
 		#Step 2.4: Create a `Location` Class to represent each cell on the island. It will store animals, plants, and manage interactions.
 		#Step 2.5: Implement the Island. It be a 2D array of `Location` objects. It manages the overall simulation.
+		#Step 2.6: Multithreading. Use a `ScheduledExecutorService` to manage recurring tasks for simulation cycles.
+		#Step 2.7: Design the GUI. Use `JavaFX` to display the dynamic state of the island.
+		#Step 2.8: Tie Everything Together. In the `main` method:
+			1. Create the island.
+			2. Initialize some animals/plants.
+			3. Start the simulation using `SimulationController`.
+			4. Display the GUI using `IslandSimulationGUI`.

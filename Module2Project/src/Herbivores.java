@@ -1,259 +1,88 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
-public class Herbivores {
-    static class Boar extends Animal{
-        private final Map<String, Double> preyProbability = new HashMap<>();
+
+public class Herbivores extends Animal{
+    public Herbivores(double weight, int maxPerLocation, int maxSpeed, double foodRequired) {
+        super(weight, maxPerLocation, maxSpeed, foodRequired);
+    }
+
+    @Override
+    public Location move(Location currentLocation, Island island) {
+        Random random = new Random();
+        int randomDirection = random.nextInt(4);
+        return currentLocation.getNeighbor(randomDirection, island);
+    }
+
+    @Override
+    public Animal breed() {
+        if(Math.random() < 0.5){
+            return new Herbivores(weight, maxPerLocation, maxSpeed, foodRequired);
+        }
+        return null;
+    }
+
+    @Override
+    public String getType() {
+        return "Herbivore";
+    }
+
+    @Override
+    public void eat(List<Animal> animals, List<Plant> plants) {
+        for(Plant plant : plants){
+            plants.remove(plant); // Eat food
+            currentFood += 1; // Food increases by 1kg
+            break;
+    }
+
+}
+    static class Boar extends Herbivores {
         public Boar() {
-            this.weight = 100;
-            this.maxPerLocation = 20;
-            this.maxSpeed = 2;
-            this.foodRequired = 10;
-
-            // Initialize prey and probabilities
-            preyProbability.put("Herbivores.Mouse", 0.25);
-            preyProbability.put("Plants", 0.4);
-            preyProbability.put("Herbivores.Caterpillar", 0.1);
-        }
-
-        @Override
-        public void eat() {
-
-        }
-
-        @Override
-        public void move() {
-
-        }
-
-        @Override
-        public void breed() {
-
+            super(15, 30, 1, 3);
         }
     }
-
-    static class Buffalo extends Animal{
+    static class Buffalo extends Herbivores{
         public Buffalo() {
-            this.weight = 100;
-            this.maxPerLocation = 20;
-            this.maxSpeed = 2;
-            this.foodRequired = 10;
-        }
-
-        @Override
-        public void eat() {
-
-        }
-
-        @Override
-        public void move() {
-
-        }
-
-        @Override
-        public void breed() {
-
+            super(700, 10, 3, 100);
         }
     }
-
-    static class Caterpillar extends Animal{
-        private final Map<String, Double> preyProbability = new HashMap<>();
+    static class Caterpillar extends Herbivores{
         public Caterpillar() {
-            this.weight = 100;
-            this.maxPerLocation = 20;
-            this.maxSpeed = 2;
-            this.foodRequired = 10;
-
-            // Initialize prey and probabilities
-            preyProbability.put("Plants", 0.25);
-        }
-
-        @Override
-        public void eat() {
-
-        }
-
-        @Override
-        public void move() {
-
-        }
-
-        @Override
-        public void breed() {
-
+            super(0.01, 1000, 0, 0);
         }
     }
-
-    static class Deer extends Animal{
+    static class Deer extends Herbivores{
         public Deer() {
-            this.weight = 100;
-            this.maxPerLocation = 20;
-            this.maxSpeed = 2;
-            this.foodRequired = 10;
-        }
-
-        @Override
-        public void eat() {
-
-        }
-
-        @Override
-        public void move() {
-
-        }
-
-        @Override
-        public void breed() {
-
+            super(300, 20, 4, 50);
         }
     }
-
-    static class Duck extends Animal{
-        private final Map<String, Double> preyProbability = new HashMap<>();
+    static class Duck extends Herbivores{
         public Duck() {
-            this.weight = 100;
-            this.maxPerLocation = 20;
-            this.maxSpeed = 2;
-            this.foodRequired = 10;
-
-            // Initialize prey and probabilities
-            preyProbability.put("Herbivores.Caterpillar", 0.25);
-            preyProbability.put("Plants", 0.4);
-        }
-
-        @Override
-        public void eat() {
-
-        }
-
-        @Override
-        public void move() {
-
-        }
-
-        @Override
-        public void breed() {
-
+            super(1, 200, 4, 0.15);
         }
     }
-
-    static class Goat extends Animal{
+    static class Goat extends Herbivores{
         public Goat() {
-            this.weight = 100;
-            this.maxPerLocation = 20;
-            this.maxSpeed = 2;
-            this.foodRequired = 10;
-        }
-
-        @Override
-        public void eat() {
-
-        }
-
-        @Override
-        public void move() {
-
-        }
-
-        @Override
-        public void breed() {
-
+            super(60, 140, 3, 10);
         }
     }
-
-    static class Horse extends Animal{
+    static class Horse extends Herbivores{
         public Horse() {
-            this.weight = 100;
-            this.maxPerLocation = 20;
-            this.maxSpeed = 2;
-            this.foodRequired = 10;
-        }
-
-        @Override
-        public void eat() {
-
-        }
-
-        @Override
-        public void move() {
-
-        }
-
-        @Override
-        public void breed() {
-
+            super(400, 20, 4, 60);
         }
     }
-
-    static class Mouse extends Animal{
+    static class Mouse extends Herbivores{
         public Mouse() {
-            this.weight = 100;
-            this.maxPerLocation = 20;
-            this.maxSpeed = 2;
-            this.foodRequired = 10;
-        }
-
-        @Override
-        public void eat() {
-
-        }
-
-        @Override
-        public void move() {
-
-        }
-
-        @Override
-        public void breed() {
-
+            super(0.05, 500, 1, 0.01);
         }
     }
-
-    static class Rabbit extends Animal{
+    static class Rabbit extends Herbivores{
         public Rabbit() {
-            this.weight = 100;
-            this.maxPerLocation = 20;
-            this.maxSpeed = 2;
-            this.foodRequired = 10;
-        }
-
-        @Override
-        public void eat() {
-
-        }
-
-        @Override
-        public void move() {
-
-        }
-
-        @Override
-        public void breed() {
-
+            super(2, 150, 2, 0.45);
         }
     }
-
-    static class Sheep extends Animal{
+    static class Sheep extends Herbivores {
         public Sheep() {
-            this.weight = 100;
-            this.maxPerLocation = 20;
-            this.maxSpeed = 2;
-            this.foodRequired = 10;
-        }
-
-        @Override
-        public void eat() {
-
-        }
-
-        @Override
-        public void move() {
-
-        }
-
-        @Override
-        public void breed() {
-
+            super(70, 140, 3, 15);
         }
     }
 }

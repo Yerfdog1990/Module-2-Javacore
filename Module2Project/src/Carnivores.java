@@ -1,6 +1,4 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class Carnivores {
     static class Wolf extends Animal{
@@ -20,7 +18,15 @@ public class Carnivores {
 
         @Override
         public void eat() {
-
+            Random random = new Random();
+            for (Map.Entry<String, Double> entry : preyProbability.entrySet()) {
+                String prey = entry.getKey();
+                Double probability = entry.getValue();
+                if (random.nextDouble() < probability) {
+                    System.out.println("Wolf successfully ate a " + prey);
+                    break;
+                }
+            }
         }
 
         @Override
@@ -50,7 +56,15 @@ public class Carnivores {
         }
         @Override
         public void eat() {
-
+            Random random = new Random();
+            for (Map.Entry<String, Double> entry : preyProbability.entrySet()) {
+                String prey = entry.getKey();
+                Double probability = entry.getValue();
+                if (random.nextDouble() < probability) {
+                    System.out.println("Carnivores.Boa successfully ate a " + prey);
+                    break;
+                }
+            }
         }
 
         @Override
@@ -81,7 +95,15 @@ public class Carnivores {
 
         @Override
         public void eat() {
-
+            Random random = new Random();
+            for (Map.Entry<String, Double> entry : preyProbability.entrySet()) {
+                String prey = entry.getKey();
+                Double probability = entry.getValue();
+                if (random.nextDouble() < probability) {
+                    System.out.println("Fox successfully ate a " + prey);
+                    break;
+                }
+            }
         }
 
         @Override
@@ -131,10 +153,7 @@ public class Carnivores {
 
         @Override
         public void move() {
-            Random random = new Random();
-            int steps = random.nextInt(maxSpeed + 1); // Randomize steps within the bear's max speed
-            System.out.println("Carnivores.Bear moves " + steps + " steps to a neighboring location.");
-            // Logic to update the Carnivores.Bear's current Location can be added here as required
+
         }
 
         @Override
@@ -167,7 +186,15 @@ public class Carnivores {
 
         @Override
         public void eat() {
-
+            Random random = new Random();
+            for (Map.Entry<String, Double> entry : preyProbability.entrySet()) {
+                String prey = entry.getKey();
+                Double probability = entry.getValue();
+                if (random.nextDouble() < probability) {
+                    System.out.println("Eagle successfully ate a " + prey);
+                    break;
+                }
+            }
         }
 
         @Override
