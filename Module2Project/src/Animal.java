@@ -5,25 +5,26 @@ public abstract class Animal {
     protected int maxPerLocation;
     protected int maxSpeed;
     protected double foodRequired;
-    protected double foodEaten = 0.0;
+    protected double currentFood;
 
     //Constructor
-    public Animal(double weight, int maxPerLocation, int maxSpeed, double foodRequired, double foodEaten) {
+    public Animal(double weight, int maxPerLocation, int maxSpeed, double foodRequired) {
         this.weight = weight;
         this.maxPerLocation = maxPerLocation;
         this.maxSpeed = maxSpeed;
         this.foodRequired = foodRequired;
-        this.foodEaten = foodEaten;
+        this.currentFood = 0;
     }
 
     //Abstract methods
     public abstract void eat(List<Animal> animals, List<Plant> plants);
-    public abstract void move(Location currentLocation, Island island);
-    public abstract void breed();
+    public abstract Location move(Location currentLocation, Island island);
+    public abstract Animal breed();
+    public abstract String getType();
 
-    // Common method to check if the animal is starving
-    public boolean isStarving() {
-        return foodEaten < foodRequired / 2;
+    // Check if the animal is still hungry
+    public boolean isHungry() {
+        return currentFood < foodRequired / 2;
     }
 }
 
