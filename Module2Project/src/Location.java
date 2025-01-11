@@ -10,23 +10,26 @@ public class Location {
         this.plantList = new ArrayList<>();
     }
 
+    public synchronized List<Animal> getAnimal(){
+        return new ArrayList<>(animalList); // Return a copy to prevent concurrency issues
+    }
+    public synchronized List<Plant> getPlant(){
+        return new ArrayList<>(plantList);
+    }
     public synchronized void addAnimal(Animal animal){
-        animalList.add(animal);
+        if(animalList.size() < animal.maxPerLocation){
+            animalList.add(animal);
+        }
     }
     public synchronized void removeAnimal(Animal animal){
         animalList.remove(animal);
     }
     public synchronized void addPlant(Plant plant){
-        plantList.add(plant);
+        if(plantList.size() < Plant.MAX_PLANTS){
+            plantList.add(plant);
+        }
     }
-    public synchronized void removePlant(Plant plant){
-        plantList.remove(plant);
+    public Location getNeighbor(int direction, Island island){
+        return island.getNeighbor(this, direction);
     }
-    public synchronized List<Animal> getAnimalList() {
-        return animalList;
-    }
-    public synchronized List<Plant> getPlantList() {
-        return plantList;
-    }
-    // Include methods for animal interactions like feeding, breeding, etc.
 }
