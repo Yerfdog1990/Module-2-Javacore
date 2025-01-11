@@ -1,6 +1,5 @@
 import java.util.*;
 
-
 public class Location {
     private List<Animal> animalList;
     private List<Plant> plantList;
