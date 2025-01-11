@@ -5,7 +5,6 @@ public class Herbivores extends Animal{
     public Herbivores(double weight, int maxPerLocation, int maxSpeed, double foodRequired) {
         super(weight, maxPerLocation, maxSpeed, foodRequired);
     }
-
     @Override
     public Location move(Location currentLocation, Island island) {
         Random random = new Random();
@@ -33,7 +32,6 @@ public class Herbivores extends Animal{
             currentFood += 1; // Food increases by 1kg
             break;
     }
-
 }
     static class Boar extends Herbivores {
         public Boar() {
