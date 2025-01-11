@@ -32,4 +32,12 @@ public class Location {
     public Location getNeighbor(int direction, Island island){
         return island.getNeighbor(this, direction);
     }
+
+    public List<Animal> getAnimalList() {
+        return animalList;
+    }
+
+    public List<Plant> getPlantList() {
+        return plantList;
+    }
 }

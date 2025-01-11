@@ -61,8 +61,7 @@ class Island {
     }
 
     public Location getNeighbor(Location location, int direction) {
-        // Define neighbor logic based on the direction
-        // Example: 0 = North, 1 = East, 2 = South, 3 = West
+        
     }
 
     public int getRows() {
