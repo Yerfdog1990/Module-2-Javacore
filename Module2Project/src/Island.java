@@ -1,26 +1,51 @@
 public class Island {
+    private final Location[][] grid;
     private final int rows;
-    private final int columns;
-    private final Location[][] locations;
+    private final int column;
 
-    public Island(int rows, int columns) {
+    // Constructor
+    public Island(int rows, int column) {
         this.rows = rows;
-        this.columns = columns;
-        locations = new Location[rows][columns];
-
+        this.column = column;
+        this.grid = new Location[rows][column];
         for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                locations[i][j] = new Location();
+            for (int j = 0; j < column; j++) {
+                this.grid[i][j] = new Location();
             }
         }
     }
-    public Location getLocation(int row, int column) {
-        if(row >= 0 && row < rows && column >= 0 && column < columns) {
-            return locations[row][column];
+    public Location getLocation(int row, int col) {
+        if (row >= 0 && row < rows && col >= 0 && col < column) {
+            return grid[row][col];
         }
-        return null;
+        return null; // Out-of-bounds
     }
-    public synchronized void simulateCycle(){
-        // Trigger actions (e.g., movement, feeding, breeding) for animals/plants
+    public Location getNeighbor(Location location, int direction) {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < column; j++) {
+                if (grid[i][j] == location) {
+                    switch (direction) {
+                        case 0: // North
+                            return getLocation(i - 1, j);
+                        case 1: // East
+                            return getLocation(i, j + 1);
+                        case 2: // South
+                            return getLocation(i + 1, j);
+                        case 3: // West
+                            return getLocation(i, j - 1);
+                        default:
+                            return null;
+                    }
+                }
+            }
+        }
+        return null; // Location not found
+    }
+    // Getters
+    public int getRows() {
+        return rows;
+    }
+    public int getColumn() {
+        return column;
     }
 }
