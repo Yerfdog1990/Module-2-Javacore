@@ -1,210 +1,84 @@
 import java.util.*;
 
-public class Carnivores {
-    static class Wolf extends Animal{
-        private final Map<String, Double> preyProbability = new HashMap<>();
+public class Carnivores extends Animal{
+    public Carnivores(double weight, int maxPerLocation, int maxSpeed, double foodRequired) {
+        super(weight, maxPerLocation, maxSpeed, foodRequired);
+    }
+
+    @Override
+    public void eat(List<Animal> animals, List<Plant> plants) {
+        for(Animal prey : animals){
+            if(prey instanceof Herbivores && isHungry() && Math.random() < getHuntingprobability(prey)){
+                animals.remove(prey);
+                currentFood += prey.weight;
+            }
+        }
+    }
+
+    @Override
+    public Location move(Location currentLocation, Island island) {
+        Random random = new Random();
+        int randomDirection = random.nextInt(4);
+        return currentLocation.getNeighbor(randomDirection, island);
+    }
+
+    @Override
+    public Animal breed() {
+        if(Math.random() < 0.5){ // 50% chance of breeding
+            return new Carnivores(weight, maxPerLocation, maxSpeed, foodRequired);
+        }
+        return null;
+    }
+
+    @Override
+    public String getType() {
+        return "Carnivore";
+    }
+
+    // Private method to determine hunting success for prey
+    private double getHuntingprobability(Animal prey) {
+        if (this instanceof Wolf && prey instanceof Fox) {
+            return 0.8;
+        }
+        if (this instanceof Bear && prey instanceof Fox) {
+            return 0.7;
+        }
+        if (this instanceof Eagle && prey instanceof Fox) {
+            return 0.6;
+        }
+        if (this instanceof Wolf && prey instanceof Boa) {
+            return 0.5;
+        }
+        return 0.2; // Default low chance
+    }
+
+    static class Wolf extends Carnivores{
         public Wolf() {
-            this.weight = 50;
-            this.maxPerLocation = 30;
-            this.maxSpeed = 3;
-            this.foodRequired = 8;
-
-            // Initialize prey and probabilities
-            preyProbability.put("Herbivores.Rabbit", 0.25);
-            preyProbability.put("Herbivores.Mouse", 0.4);
-            preyProbability.put("Herbivores.Duck", 0.1);
-            preyProbability.put("Herbivores.Caterpillar", 0.1);
-        }
-
-        @Override
-        public void eat() {
-            Random random = new Random();
-            for (Map.Entry<String, Double> entry : preyProbability.entrySet()) {
-                String prey = entry.getKey();
-                Double probability = entry.getValue();
-                if (random.nextDouble() < probability) {
-                    System.out.println("Wolf successfully ate a " + prey);
-                    break;
-                }
-            }
-        }
-
-        @Override
-        public void move() {
-
-        }
-
-        @Override
-        public void breed() {
-
+            super(50, 30, 3, 3);
         }
     }
 
-    static class Boa extends Animal{
-        private final Map<String, Double> preyProbability = new HashMap<>();
+    static class Boa extends Carnivores{
         public Boa() {
-            this.weight = 100;
-            this.maxPerLocation = 20;
-            this.maxSpeed = 2;
-            this.foodRequired = 10;
-
-            // Initialize prey and probabilities
-            preyProbability.put("Carnivores.Fox", 0.25);
-            preyProbability.put("Herbivores.Rabbit", 0.4);
-            preyProbability.put("Herbivores.Mouse", 0.1);
-            preyProbability.put("Herbivores.Duck", 0.1);
-        }
-        @Override
-        public void eat() {
-            Random random = new Random();
-            for (Map.Entry<String, Double> entry : preyProbability.entrySet()) {
-                String prey = entry.getKey();
-                Double probability = entry.getValue();
-                if (random.nextDouble() < probability) {
-                    System.out.println("Carnivores.Boa successfully ate a " + prey);
-                    break;
-                }
-            }
-        }
-
-        @Override
-        public void move() {
-
-        }
-
-        @Override
-        public void breed() {
-
+            super(15, 30, 1, 3);
         }
     }
 
-    static class Fox extends Animal{
-        private final Map<String, Double> preyProbability = new HashMap<>();
+    static class Fox extends Carnivores{
         public Fox() {
-            this.weight = 20;
-            this.maxPerLocation = 10;
-            this.maxSpeed = 1;
-            this.foodRequired = 2;
-
-            // Initialize prey and probabilities
-            preyProbability.put("Herbivores.Rabbit", 0.25);
-            preyProbability.put("Herbivores.Mouse", 0.4);
-            preyProbability.put("Herbivores.Duck", 0.1);
-            preyProbability.put("Herbivores.Caterpillar", 0.1);
-        }
-
-        @Override
-        public void eat() {
-            Random random = new Random();
-            for (Map.Entry<String, Double> entry : preyProbability.entrySet()) {
-                String prey = entry.getKey();
-                Double probability = entry.getValue();
-                if (random.nextDouble() < probability) {
-                    System.out.println("Fox successfully ate a " + prey);
-                    break;
-                }
-            }
-        }
-
-        @Override
-        public void move() {
-
-        }
-
-        @Override
-        public void breed() {
-
+            super(8, 30, 2, 2);
         }
     }
 
-    static class Bear extends Animal{
-        private final Map<String, Double> preyProbability = new HashMap<>();
-
+    static class Bear extends Carnivores{
         public Bear() {
-            this.weight = 10;
-            this.maxPerLocation = 5;
-            this.maxSpeed = 1;
-            this.foodRequired = 1;
-
-            // Initialize prey and probabilities
-            preyProbability.put("Carnivores.Boa", 0.25);
-            preyProbability.put("Herbivores.Deer", 0.4);
-            preyProbability.put("Herbivores.Rabbit", 0.2);
-            preyProbability.put("Herbivores.Mouse", 0.1);
-            preyProbability.put("Herbivores.Goat", 0.1);
-            preyProbability.put("Herbivores.Sheep", 0.1);
-            preyProbability.put("Herbivores.Boar", 0.1);
-            preyProbability.put("Herbivores.Buffalo", 0.1);
-            preyProbability.put("Herbivores.Duck", 0.1);
-        }
-
-        @Override
-        public void eat() {
-            Random random = new Random();
-            for (Map.Entry<String, Double> entry : preyProbability.entrySet()) {
-                String prey = entry.getKey();
-                Double probability = entry.getValue();
-                if (random.nextDouble() < probability) {
-                    System.out.println("Carnivores.Bear successfully ate a " + prey);
-                    break;
-                }
-            }
-        }
-
-        @Override
-        public void move() {
-
-        }
-
-        @Override
-        public void breed() {
-            Random random = new Random();
-            if (random.nextDouble() < 0.5 && this.maxPerLocation > 1) { // Example condition for reproduction
-                System.out.println("A new Carnivores.Bear is born!");
-                Bear newBear = new Bear(); // Create a new bear instance
-                // Logic for adding this bear to the location population can be added here
-            } else {
-                System.out.println("Reproduction conditions not met.");
-            }
+            super(500, 5, 2, 80);
         }
     }
 
-    static class Eagle extends Animal{
-        private final Map<String, Double> preyProbability = new HashMap<>();
+    static class Eagle extends Carnivores{
         public Eagle() {
-            this.weight = 100;
-            this.maxPerLocation = 20;
-            this.maxSpeed = 2;
-            this.foodRequired = 10;
-
-            // Initialize prey and probabilities
-            preyProbability.put("Carnivores.Fox", 0.25);
-            preyProbability.put("Herbivores.Rabbit", 0.4);
-            preyProbability.put("Herbivores.Mouse", 0.1);
-            preyProbability.put("Herbivores.Duck", 0.1);
-        }
-
-        @Override
-        public void eat() {
-            Random random = new Random();
-            for (Map.Entry<String, Double> entry : preyProbability.entrySet()) {
-                String prey = entry.getKey();
-                Double probability = entry.getValue();
-                if (random.nextDouble() < probability) {
-                    System.out.println("Eagle successfully ate a " + prey);
-                    break;
-                }
-            }
-        }
-
-        @Override
-        public void move() {
-
-        }
-
-        @Override
-        public void breed() {
-
+            super(6, 20, 3, 1);
         }
     }
 }
