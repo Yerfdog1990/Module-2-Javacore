@@ -1,0 +1,79 @@
+import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+import java.util.concurrent.*;
+
+public class IslandSimulationApp extends Application {
+    private static final int ISLAND_SIZE = 10; // 10x10 grid
+    private final Island island = new Island(ISLAND_SIZE, ISLAND_SIZE);
+    private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(3);
+    private final ExecutorService pool = Executors.newCachedThreadPool();
+
+    private TextArea statsArea;
+
+    @Override
+    public void start(Stage primaryStage) {
+        statsArea = new TextArea();
+        VBox layout = new VBox(statsArea);
+        Scene scene = new Scene(layout, 800, 600);
+
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Island Simulation");
+        primaryStage.show();
+
+        startSimulation();
+    }
+
+    public void startSimulation() {
+        scheduler.scheduleAtFixedRate(this::runAnimalActions, 0, 1, TimeUnit.SECONDS);
+        scheduler.scheduleAtFixedRate(this::growPlants, 0, 2, TimeUnit.SECONDS);
+        scheduler.scheduleAtFixedRate(this::updateStatistics, 0, 1, TimeUnit.SECONDS);
+    }
+
+    private void runAnimalActions() {
+        for (int row = 0; row < island.getRows(); row++) {
+            for (int col = 0; col < island.getCols(); col++) {
+                Location location = island.getLocation(row, col);
+                for (Animal animal : location.getAnimals()) {
+                    pool.submit(() -> {
+                        Location newLocation = animal.move(location, island);
+                        synchronized (newLocation) {
+                            animal.eat(newLocation.getAnimals(), newLocation.getPlants());
+                        }
+                    });
+                }
+            }
+        }
+    }
+
+    private void growPlants() {
+        for (int row = 0; row < island.getRows(); row++) {
+            for (int col = 0; col < island.getCols(); col++) {
+                Location location = island.getLocation(row, col);
+                pool.submit(() -> location.addPlant(new Plant()));
+            }
+        }
+    }
+
+    private void updateStatistics() {
+        Platform.runLater(() -> {
+            int totalAnimals = 0, totalPlants = 0;
+            for (int row = 0; row < island.getRows(); row++) {
+                for (int col = 0; col < island.getCols(); col++) {
+                    Location loc = island.getLocation(row, col);
+                    totalAnimals += loc.getAnimals().size();
+                    totalPlants += loc.getPlants().size();
+                }
+            }
+            statsArea.setText("Animals: " + totalAnimals + "\nPlants: " + totalPlants);
+        });
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
