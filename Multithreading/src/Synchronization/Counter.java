@@ -15,7 +15,7 @@ public class Counter {
     }
 }
 class synchronizedMethod implements Runnable{
-    private Counter counter;
+    private final Counter counter;
 
     //Constructor 
     public synchronizedMethod(Counter counter) {
@@ -26,7 +26,7 @@ class synchronizedMethod implements Runnable{
     public void run() {
         for (int i = 0; i < 5; i++) {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
