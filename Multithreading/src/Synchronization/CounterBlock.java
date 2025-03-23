@@ -4,7 +4,7 @@ public class CounterBlock {
     private int count = 10;
     //Synchronized Block (decrement):
     // Only the critical section inside the method is synchronized, allowing more flexibility.
-    public void decrement(){
+    public synchronized void decrement(){
         synchronized (this){
             count--;
             System.out.println(Thread.currentThread().getName()+ " decremented to " + count);
