@@ -32,7 +32,7 @@ public class Message {
     }
 }
 class Producer implements Runnable{
-    private Message message;
+    private final Message message;
 
     public Producer(Message message) {
         this.message = message;
@@ -47,7 +47,7 @@ class Producer implements Runnable{
     }
 }
 class Consumer implements Runnable{
-    private Message message;
+    private final Message message;
 
     public Consumer(Message message) {
         this.message = message;
