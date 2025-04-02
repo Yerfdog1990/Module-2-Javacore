@@ -52,17 +52,48 @@ class MainAnimal{
         System.out.println("\nIterating over Pets:");
         iterateAnimals(petList);
 
+        System.out.println("\nIterating over Pets (using super keyword):");
+        iteratePet(animalList);
+        iteratePet(petList);
+
         System.out.println("\nIterating over Dogs:");
         iterateAnimals(dogList);
 
         System.out.println("\nIterating over Horses:");
         iterateAnimals(horseList);
+
+        System.out.println("\nIterating over Horses (using super keyword):");
+        iterateHorse(animalList);
+        iterateHorse(petList);
+        iterateHorse(horseList);
     }
     // Method that can accept a collection of Animal or its subclasses
     public static void iterateAnimals(Collection<? extends Animal> animalCollection){
         for(Animal animal : animalCollection){
             System.out.println("Another step in the cycle completed!");
             animal.feed();
+        }
+    }
+    // Method that can accept a collection of Pet or its superclasses
+    public static void iteratePet(Collection<? super Pet> petCollection){
+        for(Object pet : petCollection){
+            System.out.println("Another step in the cycle completed!");
+            if(pet instanceof Pet){
+                ((Pet) pet).feed();
+            }else {
+        System.out.println("Skipping object that is not a Pet: " + pet.getClass().getSimpleName());
+            }
+        }
+    }
+    // Method that can accept a collection of Horse or its superclasses
+    public static void iterateHorse(Collection<? super Horse> horseCollection){
+        for(Object horse : horseCollection){
+            System.out.println("Another step in the cycle completed!");
+            if(horse instanceof Horse){
+                ((Horse) horse).feed();
+            }else {
+                System.out.println("Skipping object that is not a Horse: " + horse.getClass().getSimpleName());
+            }
         }
     }
 }
