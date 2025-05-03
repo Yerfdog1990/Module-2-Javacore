@@ -20,8 +20,8 @@ public class PredicateDemo {
             System.out.print("Enter password: ");
             String passwordTest = userInput.nextLine();
 
-            // Password check using anonymous class
-            Predicate passwordCheck1 = new Predicate() {
+            // Password check using an anonymous class
+            Predicate<String> passwordCheck1 = new Predicate() {
                 @Override
                 public boolean test(Object input) {
                     return validatePassword(passwordTest);
@@ -29,14 +29,14 @@ public class PredicateDemo {
             };
             System.out.println("Anonymous Class: Password is correct: " + passwordCheck1.test(passwordTest));
 
-            //Password check using lambda expression
-            Predicate passwordCheck2 = (input)->{
+            //Password check using a lambda expression
+            Predicate<String> passwordCheck2 = (input)->{
                 return validatePassword(passwordTest);
             };
             System.out.println("Lambda expression: Password is correct: " + passwordCheck2.test(passwordTest));
 
             //Password check using method referencing
-            Predicate passwordCheck3 = PredicateDemo::validatePassword;
+            Predicate<String> passwordCheck3 = PredicateDemo::validatePassword;
             System.out.println("Method referencing: Password is correct: " + passwordCheck3.test(passwordTest));
         }
     }
