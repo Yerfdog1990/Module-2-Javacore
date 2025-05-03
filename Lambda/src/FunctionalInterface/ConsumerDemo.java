@@ -14,33 +14,18 @@ public class ConsumerDemo {
         List<String> stringList = Arrays.asList("John", "Victor", "Mary", "Johannes", "Juliet");
 
         //Using anonymous class to print name of each child
-        Consumer<String> consumerClass1 =new Consumer<String>() {
-            @Override
-            public void accept(String name) {
-                System.out.println("Hello, " +name);
-            }
-        };
+        Consumer<String> consumerClass1 = name -> System.out.println("Hello " + name);
         // Iterating over the list with forEach and Consumer
         System.out.println("\nList of student:");
         stringList.forEach(consumerClass1);
 
         // Using a Consumer to calculate and display the length of each name
-        Consumer<String> consumerClass2 = new Consumer<String>() {
-            @Override
-            public void accept(String name) {
-                System.out.println(name+ " has " +name.length()+ " characters.");
-            }
-        };
+        Consumer<String> consumerClass2 = name -> System.out.println(name+ " has " +name.length()+ " characters.");
         System.out.println("\nName of children and character length:");
         stringList.forEach(consumerClass2);
 
         // Combining consumers with andThen
-        Consumer<String> combinedConsumer1 = new Consumer<String>() {
-            @Override
-            public void accept(String name) {
-                consumerClass1.andThen(consumerClass2).accept(name);
-            }
-        };
+        Consumer<String> combinedConsumer1 = name -> consumerClass1.andThen(consumerClass2).accept(name);
         // Iterating over the list with combined Consumer
         System.out.println("\nGreeting names and displaying lengths:");
         stringList.forEach(combinedConsumer1);
