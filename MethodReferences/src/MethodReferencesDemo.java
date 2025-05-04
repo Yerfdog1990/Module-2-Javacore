@@ -11,10 +11,10 @@ This makes the code more readable and compact.
 Key Features:
 1.Simplicity: Replaces simple lambda expressions that merely call an existing method.
 2.Types: There are four types of method references:
-    -Reference to a static method
-    -Reference to an instance method of a particular object
-    -Reference to an instance method of an arbitrary object of a particular type
-    -Reference to a constructor
+    - Reference to a static method
+    - Reference to an instance method of a particular object
+    - Reference to an instance method of an arbitrary object of a particular type
+    - Reference to a constructor
 3.Functional Interfaces: Method references work well with functional interfaces like BiFunction, Comparator, Supplier, etc.
 4.Enhanced Readability: Increases code readability by replacing verbose lambda expressions.
 
